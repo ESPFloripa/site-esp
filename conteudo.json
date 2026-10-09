@@ -1,0 +1,907 @@
+{
+ "gerado_em": "2026-10-09T13:43:41.837Z",
+ "config": {
+  "nome": "Escola de Saúde Pública de Florianópolis",
+  "sigla": "ESP Florianópolis",
+  "orgao": "Secretaria Municipal de Saúde de Florianópolis",
+  "descricao": "Formação, desenvolvimento e aprimoramento de trabalhadoras e trabalhadores da saúde, por meio de ensino, pesquisa e extensão, na perspectiva da educação permanente em saúde, para a qualidade da atenção e da gestão no SUS em Florianópolis.",
+  "logo_url": "",
+  "cor_primaria": "#0F4C81",
+  "cor_destaque": "#1E8C7A",
+  "endereco": "PREENCHER — endereço da ESP",
+  "telefone": "",
+  "email": "espfloripa.sms@floripa.sc.gov.br",
+  "instagram": "",
+  "facebook": "",
+  "youtube": "",
+  "linkedin": "",
+  "github_owner": "espfloripa",
+  "github_repo": "site-esp",
+  "github_branch": "main",
+  "url_site": "https://espfloripa.github.io/site-esp"
+ },
+ "menu": [
+  {
+   "ordem": 1,
+   "nivel": 1,
+   "rotulo": "Início",
+   "id": "inicio",
+   "pai": "",
+   "grupo": "",
+   "tipo": "inicio",
+   "destino": ""
+  },
+  {
+   "ordem": 2,
+   "nivel": 1,
+   "rotulo": "A Escola",
+   "id": "escola",
+   "pai": "",
+   "grupo": "",
+   "tipo": "secao",
+   "destino": ""
+  },
+  {
+   "ordem": 3,
+   "nivel": 1,
+   "rotulo": "Residências",
+   "id": "residencias",
+   "pai": "",
+   "grupo": "",
+   "tipo": "secao",
+   "destino": ""
+  },
+  {
+   "ordem": 4,
+   "nivel": 1,
+   "rotulo": "Especializações",
+   "id": "especializacoes",
+   "pai": "",
+   "grupo": "",
+   "tipo": "secao",
+   "destino": ""
+  },
+  {
+   "ordem": 5,
+   "nivel": 1,
+   "rotulo": "Cursos e Formação",
+   "id": "cursos",
+   "pai": "",
+   "grupo": "",
+   "tipo": "secao",
+   "destino": ""
+  },
+  {
+   "ordem": 6,
+   "nivel": 1,
+   "rotulo": "Eventos",
+   "id": "eventos",
+   "pai": "",
+   "grupo": "",
+   "tipo": "secao",
+   "destino": ""
+  },
+  {
+   "ordem": 7,
+   "nivel": 1,
+   "rotulo": "Ensino-Serviço e Pesquisa",
+   "id": "ensino-pesquisa",
+   "pai": "",
+   "grupo": "",
+   "tipo": "secao",
+   "destino": ""
+  },
+  {
+   "ordem": 8,
+   "nivel": 1,
+   "rotulo": "Serviços",
+   "id": "servicos",
+   "pai": "",
+   "grupo": "",
+   "tipo": "secao",
+   "destino": ""
+  },
+  {
+   "ordem": 1,
+   "nivel": 2,
+   "rotulo": "A Escola",
+   "id": "a-escola",
+   "pai": "escola",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "a-escola"
+  },
+  {
+   "ordem": 1,
+   "nivel": 2,
+   "rotulo": "A COREME",
+   "id": "coreme",
+   "pai": "residencias",
+   "grupo": "Residências Médicas",
+   "tipo": "pagina",
+   "destino": "coreme"
+  },
+  {
+   "ordem": 1,
+   "nivel": 2,
+   "rotulo": "Liderança e Gestão em Saúde",
+   "id": "elg",
+   "pai": "especializacoes",
+   "grupo": "",
+   "tipo": "programa",
+   "destino": "elg"
+  },
+  {
+   "ordem": 1,
+   "nivel": 2,
+   "rotulo": "Trilhas de Aprendizagem",
+   "id": "trilhas",
+   "pai": "cursos",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "trilhas"
+  },
+  {
+   "ordem": 1,
+   "nivel": 2,
+   "rotulo": "Agenda de Eventos",
+   "id": "agenda",
+   "pai": "eventos",
+   "grupo": "",
+   "tipo": "lista",
+   "destino": "eventos"
+  },
+  {
+   "ordem": 1,
+   "nivel": 2,
+   "rotulo": "COAPES",
+   "id": "coapes",
+   "pai": "ensino-pesquisa",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "coapes"
+  },
+  {
+   "ordem": 1,
+   "nivel": 2,
+   "rotulo": "Sistemas da ESP",
+   "id": "sistemas",
+   "pai": "servicos",
+   "grupo": "",
+   "tipo": "lista",
+   "destino": "servicos"
+  },
+  {
+   "ordem": 2,
+   "nivel": 2,
+   "rotulo": "SUS como Escola",
+   "id": "sus-como-escola",
+   "pai": "escola",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "sus-como-escola"
+  },
+  {
+   "ordem": 2,
+   "nivel": 2,
+   "rotulo": "Medicina de Família e Comunidade",
+   "id": "rm-mfc",
+   "pai": "residencias",
+   "grupo": "Residências Médicas",
+   "tipo": "programa",
+   "destino": "rm-mfc"
+  },
+  {
+   "ordem": 2,
+   "nivel": 2,
+   "rotulo": "Preceptoria Profissional",
+   "id": "preceptoria-profissional",
+   "pai": "especializacoes",
+   "grupo": "",
+   "tipo": "programa",
+   "destino": "preceptoria-profissional"
+  },
+  {
+   "ordem": 2,
+   "nivel": 2,
+   "rotulo": "Proposição de Eventos",
+   "id": "proposicao-eventos",
+   "pai": "eventos",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "proposicao-eventos"
+  },
+  {
+   "ordem": 2,
+   "nivel": 2,
+   "rotulo": "Sobre o PET-Saúde",
+   "id": "sobre-pet",
+   "pai": "ensino-pesquisa",
+   "grupo": "PET-Saúde",
+   "tipo": "pagina",
+   "destino": "sobre-pet"
+  },
+  {
+   "ordem": 2,
+   "nivel": 2,
+   "rotulo": "Documentos e Formulários",
+   "id": "documentos",
+   "pai": "servicos",
+   "grupo": "",
+   "tipo": "lista",
+   "destino": "documentos"
+  },
+  {
+   "ordem": 3,
+   "nivel": 2,
+   "rotulo": "Educação Permanente em Saúde",
+   "id": "educacao-permanente",
+   "pai": "escola",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "educacao-permanente"
+  },
+  {
+   "ordem": 3,
+   "nivel": 2,
+   "rotulo": "Psiquiatria",
+   "id": "rm-psiquiatria",
+   "pai": "residencias",
+   "grupo": "Residências Médicas",
+   "tipo": "programa",
+   "destino": "rm-psiquiatria"
+  },
+  {
+   "ordem": 3,
+   "nivel": 2,
+   "rotulo": "Preceptoria para o SUS",
+   "id": "preceptoria-sus",
+   "pai": "especializacoes",
+   "grupo": "",
+   "tipo": "programa",
+   "destino": "preceptoria-sus"
+  },
+  {
+   "ordem": 3,
+   "nivel": 2,
+   "rotulo": "Oportunidades de Eventos e Cursos",
+   "id": "oportunidades",
+   "pai": "cursos",
+   "grupo": "",
+   "tipo": "lista",
+   "destino": "oportunidades"
+  },
+  {
+   "ordem": 3,
+   "nivel": 2,
+   "rotulo": "Certificados",
+   "id": "certificados",
+   "pai": "eventos",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "certificados"
+  },
+  {
+   "ordem": 3,
+   "nivel": 2,
+   "rotulo": "PET Equidades",
+   "id": "pet-equidades",
+   "pai": "ensino-pesquisa",
+   "grupo": "PET-Saúde",
+   "tipo": "pagina",
+   "destino": "pet-equidades"
+  },
+  {
+   "ordem": 4,
+   "nivel": 2,
+   "rotulo": "Avaliação Institucional",
+   "id": "avaliacao-institucional",
+   "pai": "escola",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "avaliacao-institucional"
+  },
+  {
+   "ordem": 4,
+   "nivel": 2,
+   "rotulo": "Processo Seletivo",
+   "id": "editais-rm",
+   "pai": "residencias",
+   "grupo": "Residências Médicas",
+   "tipo": "editais",
+   "destino": "grupo=medica;tipo=Processo Seletivo,Resultado,Retificação,Convocação"
+  },
+  {
+   "ordem": 4,
+   "nivel": 2,
+   "rotulo": "Editais",
+   "id": "editais-especializacoes",
+   "pai": "especializacoes",
+   "grupo": "",
+   "tipo": "editais",
+   "destino": "grupo=especializacao"
+  },
+  {
+   "ordem": 4,
+   "nivel": 2,
+   "rotulo": "Manuais de Preceptoria",
+   "id": "manuais-preceptoria",
+   "pai": "cursos",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "manuais-preceptoria"
+  },
+  {
+   "ordem": 4,
+   "nivel": 2,
+   "rotulo": "Eventos de Educação Externos",
+   "id": "eventos-externos",
+   "pai": "eventos",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "eventos-externos"
+  },
+  {
+   "ordem": 5,
+   "nivel": 2,
+   "rotulo": "ESP na RedEscola",
+   "id": "esp-redescola",
+   "pai": "escola",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "esp-redescola"
+  },
+  {
+   "ordem": 5,
+   "nivel": 2,
+   "rotulo": "Seleção de Preceptores",
+   "id": "preceptores-rm",
+   "pai": "residencias",
+   "grupo": "Residências Médicas",
+   "tipo": "editais",
+   "destino": "grupo=medica;tipo=Seleção de Preceptores"
+  },
+  {
+   "ordem": 5,
+   "nivel": 2,
+   "rotulo": "Prêmio de Boas Práticas",
+   "id": "premio-boas-praticas",
+   "pai": "eventos",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "premio-boas-praticas"
+  },
+  {
+   "ordem": 5,
+   "nivel": 2,
+   "rotulo": "Edições Anteriores",
+   "id": "pet-edicoes-anteriores",
+   "pai": "ensino-pesquisa",
+   "grupo": "PET-Saúde",
+   "tipo": "pagina",
+   "destino": "pet-edicoes-anteriores"
+  },
+  {
+   "ordem": 6,
+   "nivel": 2,
+   "rotulo": "Nossa Equipe",
+   "id": "equipe",
+   "pai": "escola",
+   "grupo": "",
+   "tipo": "lista",
+   "destino": "equipe"
+  },
+  {
+   "ordem": 6,
+   "nivel": 2,
+   "rotulo": "Estágios Optativos",
+   "id": "estagios-optativos-rm",
+   "pai": "residencias",
+   "grupo": "Residências Médicas",
+   "tipo": "pagina",
+   "destino": "estagios-optativos-rm"
+  },
+  {
+   "ordem": 6,
+   "nivel": 2,
+   "rotulo": "Projeto Mais Médicos pelo Brasil",
+   "id": "mais-medicos",
+   "pai": "ensino-pesquisa",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "mais-medicos"
+  },
+  {
+   "ordem": 7,
+   "nivel": 2,
+   "rotulo": "Carteira de Serviços",
+   "id": "carteira-servicos",
+   "pai": "escola",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "carteira-servicos"
+  },
+  {
+   "ordem": 7,
+   "nivel": 2,
+   "rotulo": "Férias dos Residentes",
+   "id": "ferias-residentes",
+   "pai": "residencias",
+   "grupo": "Residências Médicas",
+   "tipo": "pagina",
+   "destino": "ferias-residentes"
+  },
+  {
+   "ordem": 7,
+   "nivel": 2,
+   "rotulo": "Agenda de Prioridades de Pesquisa",
+   "id": "agenda-prioridades-pesquisa",
+   "pai": "ensino-pesquisa",
+   "grupo": "Pesquisas em Saúde",
+   "tipo": "pagina",
+   "destino": "agenda-prioridades-pesquisa"
+  },
+  {
+   "ordem": 8,
+   "nivel": 2,
+   "rotulo": "Contato",
+   "id": "contato",
+   "pai": "escola",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "contato"
+  },
+  {
+   "ordem": 8,
+   "nivel": 2,
+   "rotulo": "A COREMU",
+   "id": "coremu",
+   "pai": "residencias",
+   "grupo": "Residências em Área Profissional",
+   "tipo": "pagina",
+   "destino": "coremu"
+  },
+  {
+   "ordem": 8,
+   "nivel": 2,
+   "rotulo": "Submissão de Projetos",
+   "id": "submissao-projetos",
+   "pai": "ensino-pesquisa",
+   "grupo": "Pesquisas em Saúde",
+   "tipo": "pagina",
+   "destino": "submissao-projetos"
+  },
+  {
+   "ordem": 9,
+   "nivel": 2,
+   "rotulo": "Saúde da Família",
+   "id": "rms-saude-familia",
+   "pai": "residencias",
+   "grupo": "Residências em Área Profissional",
+   "tipo": "programa",
+   "destino": "rms-saude-familia"
+  },
+  {
+   "ordem": 9,
+   "nivel": 2,
+   "rotulo": "Consulta Pública",
+   "id": "consulta-publica",
+   "pai": "ensino-pesquisa",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": "consulta-publica"
+  },
+  {
+   "ordem": 10,
+   "nivel": 2,
+   "rotulo": "Gestão em Saúde",
+   "id": "rms-gestao",
+   "pai": "residencias",
+   "grupo": "Residências em Área Profissional",
+   "tipo": "programa",
+   "destino": "rms-gestao"
+  },
+  {
+   "ordem": 11,
+   "nivel": 2,
+   "rotulo": "Enfermagem em Atenção Primária",
+   "id": "ru-enfermagem-aps",
+   "pai": "residencias",
+   "grupo": "Residências em Área Profissional",
+   "tipo": "programa",
+   "destino": "ru-enfermagem-aps"
+  },
+  {
+   "ordem": 12,
+   "nivel": 2,
+   "rotulo": "Processo Seletivo",
+   "id": "editais-rmulti",
+   "pai": "residencias",
+   "grupo": "Residências em Área Profissional",
+   "tipo": "editais",
+   "destino": "grupo=multi;tipo=Processo Seletivo,Resultado,Retificação,Convocação"
+  },
+  {
+   "ordem": 13,
+   "nivel": 2,
+   "rotulo": "Seleção de Preceptores",
+   "id": "preceptores-rmulti",
+   "pai": "residencias",
+   "grupo": "Residências em Área Profissional",
+   "tipo": "editais",
+   "destino": "grupo=multi;tipo=Seleção de Preceptores"
+  },
+  {
+   "ordem": 14,
+   "nivel": 2,
+   "rotulo": "Residente Visitante e Estágio Optativo",
+   "id": "residente-visitante",
+   "pai": "residencias",
+   "grupo": "Para todos os residentes",
+   "tipo": "pagina",
+   "destino": "residente-visitante"
+  },
+  {
+   "ordem": 15,
+   "nivel": 2,
+   "rotulo": "Estágio Optativo no Ministério da Saúde",
+   "id": "estagio-optativo-ms",
+   "pai": "residencias",
+   "grupo": "Para todos os residentes",
+   "tipo": "pagina",
+   "destino": "estagio-optativo-ms"
+  },
+  {
+   "ordem": 16,
+   "nivel": 2,
+   "rotulo": "Liberação para Eventos Externos",
+   "id": "liberacao-eventos-residentes",
+   "pai": "residencias",
+   "grupo": "Para todos os residentes",
+   "tipo": "pagina",
+   "destino": "eventos-externos"
+  }
+ ],
+ "paginas": {
+  "a-escola": {
+   "titulo": "A Escola",
+   "subtitulo": "Quem somos e o que fazemos",
+   "corpo": "A Escola de Saúde Pública de Florianópolis tem como missão desenvolver políticas e ações de ensino, pesquisa e extensão no campo da saúde, com inovação e sustentabilidade, para a construção e produção de conhecimentos, formação e qualificação das práticas, integrando ensino-serviço-comunidade e buscando o aprimoramento da atenção e da gestão no SUS.\n\n## O que a Escola faz\n\n- Ensino de pós-graduação na área da saúde, incluindo a modalidade de Residência em Saúde;\n- Cursos livres por meio da educação continuada e permanente para profissionais de qualquer escolaridade inseridos no Sistema Único de Saúde;\n- Cursos de extensão, articulados ao planejamento das Unidades de Saúde, dos Conselhos Locais de Saúde e do Conselho Municipal de Saúde.\n\n## Objetivo\n\nPromover a formação, o desenvolvimento e o aprimoramento de recursos humanos em saúde, por meio de políticas e ações em ensino, pesquisa e extensão, na perspectiva da educação permanente em saúde, contribuindo para a qualidade da atenção e da gestão no SUS, no âmbito do município de Florianópolis e região.",
+   "arquivos": []
+  },
+  "sus-como-escola": {
+   "titulo": "SUS como Escola",
+   "subtitulo": "",
+   "corpo": "O SUS como Escola é o eixo da PMEPS responsável pelas relações intra e interinstitucionais entre saúde e educação, promovendo a integração ensino/pesquisa/extensão e serviço/comunidade e orientando as linhas de pesquisa em saúde no âmbito da SMS de Florianópolis.\n\nO eixo SUS como Escola será conduzido pela ESP de Florianópolis, em parceria com as áreas e representações dos trabalhadores envolvidos, com o intuito de contribuir para a formação de recursos humanos para o SUS, com enfoque nas necessidades da rede municipal de saúde de Florianópolis.",
+   "arquivos": []
+  },
+  "educacao-permanente": {
+   "titulo": "Educação Permanente em Saúde",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "avaliacao-institucional": {
+   "titulo": "Avaliação Institucional",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "esp-redescola": {
+   "titulo": "ESP na RedEscola",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "carteira-servicos": {
+   "titulo": "Carteira de Serviços",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "contato": {
+   "titulo": "Contato",
+   "subtitulo": "Fale com a Escola",
+   "corpo": "Os dados de endereço, telefone, e-mail e redes sociais ficam na aba CONFIG e aparecem automaticamente no rodapé de todas as páginas.\n\nUse esta página para orientações adicionais: horário de atendimento, como chegar, a quem se dirigir por assunto.",
+   "arquivos": []
+  },
+  "coreme": {
+   "titulo": "Comissão de Residência Médica (COREME)",
+   "subtitulo": "Secretaria Municipal de Saúde de Florianópolis",
+   "corpo": "## Apresentação\n\n**O que é a COREME?** (a preencher)\n\n**Composição: integrantes e representação** (a preencher)\n\n## Calendário de reuniões\n\n(a preencher)\n\n## Decisões e deliberações\n\n(a preencher)\n\n## Documentos\n\n- Normativas nacionais\n- Normativas institucionais\n- Regimento interno\n\n## Formulários e modelos\n\n- Solicitação de transferência\n- Solicitação de desistência\n- Solicitação de trancamento\n\n## Perguntas frequentes\n\n(a preencher)\n\n## Contato\n\nPREENCHER — e-mail da COREME",
+   "arquivos": []
+  },
+  "coremu": {
+   "titulo": "Comissão de Residência Multiprofissional (COREMU)",
+   "subtitulo": "Secretaria Municipal de Saúde de Florianópolis",
+   "corpo": "## Apresentação\n\n**O que é a COREMU?** (a preencher)\n\n**Composição: integrantes e representação** (a preencher)\n\n## Calendário de reuniões\n\n(a preencher)\n\n## Decisões e deliberações\n\n(a preencher)\n\n## Documentos\n\n- Normativas nacionais\n- Normativas institucionais\n- Regimento interno\n\n## Formulários e modelos\n\n- Solicitação de transferência\n- Solicitação de desistência\n- Solicitação de trancamento\n\n## Perguntas frequentes\n\n(a preencher)\n\n## Contato\n\ncoremu.espfloripa@gmail.com",
+   "arquivos": []
+  },
+  "estagios-optativos-rm": {
+   "titulo": "Estágios Optativos das Residências Médicas",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "ferias-residentes": {
+   "titulo": "Férias dos Residentes Médicos",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "residente-visitante": {
+   "titulo": "Residente Visitante e Estágio Optativo",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher: regras para receber residentes de outros programas e para realizar estágio optativo fora da rede.)",
+   "arquivos": []
+  },
+  "estagio-optativo-ms": {
+   "titulo": "Processo Seletivo — Estágio Optativo no Ministério da Saúde",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "trilhas": {
+   "titulo": "Trilhas de Aprendizagem",
+   "subtitulo": "Formação para quem ingressa na SMS",
+   "corpo": "O curso \"Trilhas de Aprendizagem para os Trabalhadores da Secretaria Municipal de Saúde – Módulo Introdutório\" é uma iniciativa da Escola de Saúde Pública de Florianópolis, desenvolvida em parceria com o Núcleo Telessaúde UFSC, e destina-se a desenvolver competências fundamentais de trabalhadoras e trabalhadores da saúde para o avanço da missão institucional \"Promover Saúde para Todos, com qualidade\".\n\nO curso é autodirigido e autoinstrucional, online, e organizado por módulos, onde as/os trabalhadoras/es que ingressam na SMS de Florianópolis poderão fazer uma trilha de formação, de acordo com seu percurso de trabalho na Secretaria.\n\nEm 2023, a ESP iniciou o planejamento da formação e, em 2024, o Módulo Introdutório foi lançado. A produção de conteúdo ocorre por diferentes trabalhadores da própria Secretaria Municipal de Saúde de Florianópolis.\n\nA proposta é que a realização da formação se estabeleça como um marco inicial obrigatório para todos os novos trabalhadores, garantindo uma base comum de conhecimento e integração ao nosso sistema de saúde.",
+   "arquivos": []
+  },
+  "manuais-preceptoria": {
+   "titulo": "Manuais de Preceptoria",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher. Liste os manuais na coluna Arquivos.)",
+   "arquivos": []
+  },
+  "proposicao-eventos": {
+   "titulo": "Proposição de Eventos",
+   "subtitulo": "Como propor um evento de educação na SMS",
+   "corpo": "(Conteúdo a preencher: fluxo, prazos e link para o sistema de proposição.)",
+   "arquivos": []
+  },
+  "certificados": {
+   "titulo": "Certificados",
+   "subtitulo": "Emissão, busca e verificação",
+   "corpo": "## Já participei de um evento e quero meu certificado\n\n(a preencher: link do portal de busca de certificados)\n\n## Quero verificar a autenticidade de um certificado\n\n(a preencher: link do verificador)\n\n## Sou organizador e preciso emitir certificados\n\n(a preencher)",
+   "arquivos": []
+  },
+  "eventos-externos": {
+   "titulo": "Eventos de Educação Externos",
+   "subtitulo": "Liberação para servidores e residentes",
+   "corpo": "## Eventos de curta duração\n\n(a preencher: link do sistema de liberação)\n\n## Eventos longos e pós-graduação\n\n(a preencher: link do sistema de liberação)",
+   "arquivos": []
+  },
+  "premio-boas-praticas": {
+   "titulo": "Prêmio de Boas Práticas",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "coapes": {
+   "titulo": "COAPES",
+   "subtitulo": "Contrato Organizativo de Ação Pública Ensino-Saúde",
+   "corpo": "Neste momento não estão sendo recebidas novas solicitações de COAPES. Em breve esta página será atualizada com novas informações.",
+   "arquivos": []
+  },
+  "sobre-pet": {
+   "titulo": "Sobre o PET-Saúde",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "pet-equidades": {
+   "titulo": "PET Equidades",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "pet-edicoes-anteriores": {
+   "titulo": "PET-Saúde — Edições Anteriores",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "mais-medicos": {
+   "titulo": "Projeto Mais Médicos pelo Brasil",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "agenda-prioridades-pesquisa": {
+   "titulo": "Agenda de Prioridades de Pesquisa",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "submissao-projetos": {
+   "titulo": "Submissão de Projetos de Pesquisa",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher: fluxo e formulário.)",
+   "arquivos": []
+  },
+  "consulta-publica": {
+   "titulo": "Consulta Pública",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  }
+ },
+ "programas": {
+  "rm-mfc": {
+   "id": "rm-mfc",
+   "grupo": "medica",
+   "nome": "Residência em Medicina de Família e Comunidade",
+   "resumo": "Formação de médicas e médicos de família e comunidade na rede de atenção primária de Florianópolis.",
+   "duracao": "2 anos",
+   "vagas": "",
+   "carga_horaria": "60 h semanais",
+   "coordenacao": "",
+   "contato": "",
+   "corpo": "## Sobre o programa\n\n(a preencher)\n\n## Cenários de prática\n\n(a preencher)",
+   "arquivos": []
+  },
+  "rm-psiquiatria": {
+   "id": "rm-psiquiatria",
+   "grupo": "medica",
+   "nome": "Residência em Psiquiatria",
+   "resumo": "",
+   "duracao": "3 anos",
+   "vagas": "",
+   "carga_horaria": "60 h semanais",
+   "coordenacao": "",
+   "contato": "",
+   "corpo": "(a preencher)",
+   "arquivos": []
+  },
+  "rms-saude-familia": {
+   "id": "rms-saude-familia",
+   "grupo": "multi",
+   "nome": "Residência Multiprofissional em Saúde da Família",
+   "resumo": "",
+   "duracao": "2 anos",
+   "vagas": "",
+   "carga_horaria": "60 h semanais",
+   "coordenacao": "",
+   "contato": "",
+   "corpo": "(a preencher)",
+   "arquivos": []
+  },
+  "rms-gestao": {
+   "id": "rms-gestao",
+   "grupo": "multi",
+   "nome": "Residência Multiprofissional em Gestão em Saúde",
+   "resumo": "",
+   "duracao": "2 anos",
+   "vagas": "",
+   "carga_horaria": "60 h semanais",
+   "coordenacao": "",
+   "contato": "",
+   "corpo": "(a preencher)",
+   "arquivos": []
+  },
+  "ru-enfermagem-aps": {
+   "id": "ru-enfermagem-aps",
+   "grupo": "multi",
+   "nome": "Residência Uniprofissional em Enfermagem em Atenção Primária à Saúde",
+   "resumo": "",
+   "duracao": "2 anos",
+   "vagas": "",
+   "carga_horaria": "60 h semanais",
+   "coordenacao": "",
+   "contato": "",
+   "corpo": "(a preencher)",
+   "arquivos": []
+  },
+  "elg": {
+   "id": "elg",
+   "grupo": "especializacao",
+   "nome": "Especialização em Liderança e Gestão em Saúde",
+   "resumo": "",
+   "duracao": "",
+   "vagas": "",
+   "carga_horaria": "",
+   "coordenacao": "",
+   "contato": "",
+   "corpo": "(a preencher)",
+   "arquivos": []
+  },
+  "preceptoria-profissional": {
+   "id": "preceptoria-profissional",
+   "grupo": "especializacao",
+   "nome": "Especialização em Preceptoria Profissional",
+   "resumo": "",
+   "duracao": "",
+   "vagas": "",
+   "carga_horaria": "",
+   "coordenacao": "",
+   "contato": "",
+   "corpo": "(a preencher)",
+   "arquivos": []
+  },
+  "preceptoria-sus": {
+   "id": "preceptoria-sus",
+   "grupo": "especializacao",
+   "nome": "Especialização em Preceptoria para o SUS",
+   "resumo": "",
+   "duracao": "",
+   "vagas": "",
+   "carga_horaria": "",
+   "coordenacao": "",
+   "contato": "",
+   "corpo": "(a preencher)",
+   "arquivos": []
+  }
+ },
+ "editais": [],
+ "eventos": [],
+ "oportunidades": [],
+ "equipe": [],
+ "servicos": [
+  {
+   "ordem": 1,
+   "nome": "Busca de certificados",
+   "descricao": "Recupere certificados de eventos e cursos que você já concluiu.",
+   "link": "",
+   "publico": "Público geral",
+   "icone": "🎓"
+  },
+  {
+   "ordem": 2,
+   "nome": "Verificação de certificados",
+   "descricao": "Confira a autenticidade de um certificado emitido pela ESP.",
+   "link": "",
+   "publico": "Público geral",
+   "icone": "✅"
+  },
+  {
+   "ordem": 3,
+   "nome": "Reserva de salas e equipamentos",
+   "descricao": "Agende salas e equipamentos da ESP.",
+   "link": "",
+   "publico": "Servidores",
+   "icone": "📅"
+  },
+  {
+   "ordem": 4,
+   "nome": "Liberação para eventos externos curtos",
+   "descricao": "Solicite liberação para participar de eventos de curta duração.",
+   "link": "",
+   "publico": "Servidores",
+   "icone": "✈️"
+  },
+  {
+   "ordem": 5,
+   "nome": "Liberação para eventos longos e pós-graduação",
+   "descricao": "Solicite liberação para cursos longos e pós-graduação.",
+   "link": "",
+   "publico": "Servidores",
+   "icone": "📚"
+  },
+  {
+   "ordem": 6,
+   "nome": "Licença Capacitação",
+   "descricao": "Solicite a licença capacitação.",
+   "link": "",
+   "publico": "Servidores",
+   "icone": "📝"
+  },
+  {
+   "ordem": 7,
+   "nome": "Proposição de eventos",
+   "descricao": "Proponha um evento de educação na SMS.",
+   "link": "",
+   "publico": "Servidores",
+   "icone": "💡"
+  },
+  {
+   "ordem": 8,
+   "nome": "Submissão de projetos de pesquisa",
+   "descricao": "Submeta um projeto de pesquisa para apreciação.",
+   "link": "",
+   "publico": "Público geral",
+   "icone": "🔬"
+  }
+ ],
+ "documentos": [],
+ "avisos": []
+}
