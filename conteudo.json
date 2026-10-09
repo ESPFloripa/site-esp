@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-09T14:13:49.455Z",
+ "gerado_em": "2026-10-09T16:19:44.022Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -204,6 +204,16 @@
   {
    "ordem": 2,
    "nivel": 2,
+   "rotulo": "Saber Saúde Floripa",
+   "id": "saber-saude",
+   "pai": "cursos",
+   "grupo": "",
+   "tipo": "link",
+   "destino": "https://espfloripa.github.io/SaberSaude/"
+  },
+  {
+   "ordem": 2,
+   "nivel": 2,
    "rotulo": "Proposição de Eventos",
    "id": "proposicao-eventos",
    "pai": "eventos",
@@ -340,6 +350,16 @@
    "grupo": "",
    "tipo": "pagina",
    "destino": "eventos-externos"
+  },
+  {
+   "ordem": 4,
+   "nivel": 2,
+   "rotulo": "PET Clima (2026/2028)",
+   "id": "pet-clima",
+   "pai": "ensino-pesquisa",
+   "grupo": "PET-Saúde",
+   "tipo": "link",
+   "destino": "https://espfloripa.github.io/petclima/"
   },
   {
    "ordem": 5,
