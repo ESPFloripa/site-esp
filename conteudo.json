@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T18:00:12.505Z",
+ "gerado_em": "2026-10-13T18:44:50.972Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -11,9 +11,9 @@
   "endereco": "PREENCHER — endereço da ESP",
   "telefone": "",
   "email": "espfloripa.sms@floripa.sc.gov.br",
-  "instagram": "",
+  "instagram": "Siga a ESP Floripa no Instagram",
   "facebook": "",
-  "youtube": "",
+  "youtube": "Canal da ESP Floripa no Youtube",
   "linkedin": "",
   "github_owner": "espfloripa",
   "github_repo": "site-esp",
@@ -190,16 +190,6 @@
    "grupo": "Residências Médicas",
    "tipo": "programa",
    "destino": "rm-mfc"
-  },
-  {
-   "ordem": 2,
-   "nivel": 2,
-   "rotulo": "Preceptoria Profissional",
-   "id": "preceptoria-profissional",
-   "pai": "especializacoes",
-   "grupo": "",
-   "tipo": "programa",
-   "destino": "preceptoria-profissional"
   },
   {
    "ordem": 2,
@@ -764,7 +754,7 @@
   "Eventos e cursos": {
    "titulo": "Eventos e cursos",
    "subtitulo": "Agenda do Núcleo de Educação Permanente em Saúde",
-   "corpo": "Acesse a agenda através do link: https://espfloripa.github.io/agenda_NEPS/",
+   "corpo": "Os cursos e eventos internos da Secretaria Municipal de Saúde assim como os eventos externos indicados com recomendação podem ser consultados na Agenda do Núcleo de Educação Permenente em Saúde disponível em:  https://espfloripa.github.io/agenda_NEPS/",
    "arquivos": []
   }
  },
@@ -818,8 +808,13 @@
    "carga_horaria": "60 h semanais",
    "coordenacao": "",
    "contato": "",
-   "corpo": "(a preencher)",
-   "arquivos": []
+   "corpo": "A Residência Multiprofissional em Gestão em Saúde tem como objetivo contribuir para a excelência da gestão pública em saúde, formando profissionais para analisar e resolver problemas na organização de sistemas de saúde. Por meio do uso de ferramentas de gestão, o programa visa promover a melhoria contínua e a sustentabilidade do Sistema Único de Saúde (SUS).\n\nConstitui modalidade de ensino de pós-graduação “latu sensu”, sob a forma de curso de especialização caracterizado por ensino em serviço e desenvolvido por meio de atividades práticas, teóricas e teórico-práticas.\n\nO programa contempla as áreas de formação da Farmácia, da Odontologia e da Enfermagem, desenvolvido em dois (02) anos de estágio, que serão divididos em estágio R1 e R2. Os estágios de gestão ocorrerão na Gestão Central e na gestão das unidades assistenciais da Secretaria Municipal de Saúde de Florianópolis, com supervisão em tempo integral. Também está prevista nesse período a realização do estágio optativo, definido de acordo com o perfil e a programação de cada residente.",
+   "arquivos": [
+    {
+     "nome": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/02_10_2026_10.14.07.2bc3558675ffe505180a5a15deb108eb.pdf https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/17_11_2025_7.25.40.ebbd5a4f7ea34a82eb51de2bfefde184.pdf",
+     "url": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/02_10_2026_10.14.07.2bc3558675ffe505180a5a15deb108eb.pdf https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/17_11_2025_7.25.40.ebbd5a4f7ea34a82eb51de2bfefde184.pdf"
+    }
+   ]
   },
   "ru-enfermagem-aps": {
    "id": "ru-enfermagem-aps",
@@ -839,7 +834,7 @@
    "grupo": "especializacao",
    "nome": "Especialização em Liderança e Gestão em Saúde",
    "resumo": "",
-   "duracao": "3 anos",
+   "duracao": "2 anos",
    "vagas": "",
    "carga_horaria": "4 h semanais",
    "coordenacao": "Nulvio Lermen Junior, Edenice Reais da Silveira, Daniela Baumgart de Liz Calderon",
@@ -847,30 +842,17 @@
    "corpo": "O curso de Especialização em Gestão e Liderança em Saúde desenvolvido pela Escola de Saúde Pública de Florianópolis é um curso no formato Lato Sensu com 360h reconhecido pelo MEC, que tem como objetivo formar profissionais de nível superior para o desenvolvimento de atividades de gestão no sistema de saúde. \n\nA organização pedagógica do curso incentiva o desenvolvimento de habilidades de liderança, fomentando a reflexão crítica sobre a prática da gestão e seu impacto na saúde, promovendo a qualificação dos gestores nos serviços de saúde e criando uma rede de apoio e troca de experiências entre profissionais da região. Para isso serão utilizadas metodologias ativas de ensino e aprendizagem, tendo como base o diálogo e a problematização da realidade experimentada na gestão em saúde. Assim, espera-se promover uma aprendizagem significativa, onde o especializando é percebido como o principal responsável por seu aprendizado, formando gestores ativos, reflexivos, criativos e autônomos.",
    "arquivos": []
   },
-  "preceptoria-profissional": {
-   "id": "preceptoria-profissional",
-   "grupo": "especializacao",
-   "nome": "Especialização em Preceptoria Profissional",
-   "resumo": "",
-   "duracao": "",
-   "vagas": "",
-   "carga_horaria": "",
-   "coordenacao": "",
-   "contato": "",
-   "corpo": "(a preencher)",
-   "arquivos": []
-  },
   "preceptoria-sus": {
    "id": "preceptoria-sus",
    "grupo": "especializacao",
    "nome": "Especialização em Preceptoria para o SUS",
    "resumo": "",
-   "duracao": "",
+   "duracao": "1 ano",
    "vagas": "",
-   "carga_horaria": "",
+   "carga_horaria": "8h semanais",
    "coordenacao": "",
    "contato": "",
-   "corpo": "(a preencher)",
+   "corpo": "A Especialização em Preceptoria em Saúde, desenvolvida pela Escola de Saúde Pública de Florianópolis, é um curso no formato Lato Sensu com 360h reconhecido pelo Conselho Estadual de Educação de Santa Catarina.\n\nSeu objetivo é formar profissionais de nível superior para o desenvolvimento da preceptoria de residentes e estudantes de graduação no Sistema Único de Saúde de Florianópolis.\n\nA organização do curso incentiva o desenvolvimento de habilidades pedagógicas, fomentando a reflexão crítica sobre a prática da preceptoria e seu impacto na formação em saúde, promovendo a qualificação da preceptoria nos serviços de saúde e criando uma rede de apoio e troca de experiências entre preceptores.\n\nPara isso, adota-se uma concepção de aprendizagem crítico-reflexiva, com a aplicação de metodologias ativas de ensino e aprendizagem em atividades que serão desenvolvidas no período de 12 meses consecutivos (julho/2026 a junho/2027). Os seguintes módulos serão abordados:\n\n- Fundamentos da preceptoria;\n\n- Estratégias para o desenvolvimento da preceptoria;\n\n- Ferramentas de ensino e aprendizagem na preceptoria;\n\n- Preceptoria no contexto do trabalho interprofissional;\n\n- Gestão do processo de ensino na preceptoria;\n\n- Avaliação e feedback;\n\n- Comunicação na preceptoria;\n\n- Módulo prático da preceptoria;\n\n- Desenvolvimento do Projeto de Intervenção (PI);\n\n- Trabalho de Conclusão de Curso.\n\nA concepção mediadora de avaliação é adotada no curso, exigindo-se, para certificação de conclusão, que o especializando obtenha ao seu final:\n\na) Conceito satisfatório na avaliação somativa realizada ao final do curso;\n\nb) Cumprimento de, no mínimo, 75% da carga horária de atividades do curso;\n\nc) Conceito satisfatório no Relatório do Projeto de Intervenção (PI), considerando instrumento de avaliação previamente definido;\n\nd) Conceito satisfatório em um Trabalho de Conclusão de Curso (TCC) individualmente, consoante com a realidade do curso de pós-graduação.",
    "arquivos": []
   }
  },
