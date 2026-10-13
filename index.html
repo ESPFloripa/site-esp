@@ -127,6 +127,7 @@
   .processo.aberto { padding: 16px 20px 4px; border: 1px solid #CDE7E1; border-left: 4px solid var(--verde); border-radius: 8px; background: #F7FCFA; }
   .processo h2 { font-size: 1.2rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
   .processo h3 { font-size: 1rem; color: var(--cinza); margin: 12px 0 0; }
+  .processo .inscricoes { margin: 0 0 6px; color: var(--cinza); font-size: 0.95rem; }
   .processo .lista li:last-child { border-bottom: 0; }
   .processo.aberto .docs .etiqueta.aberto { display: none; }
   details.ano { border-top: 1px solid var(--linha); }
@@ -439,6 +440,7 @@
       }
       mapa[chave].docs.push(e);
       if (ehAberto(e)) mapa[chave].aberto = true;
+      if (e.inscricoes_ate && (!mapa[chave].inscricoes_ate || e.inscricoes_ate > mapa[chave].inscricoes_ate)) mapa[chave].inscricoes_ate = e.inscricoes_ate;
     });
     return ordem.map(function (c) { return mapa[c]; }).sort(function (a, b) {
       if (a.aberto !== b.aberto) return a.aberto ? -1 : 1;
@@ -472,7 +474,8 @@
     var html = '';
     if (abertos.length) {
       html += abertos.map(function (p) {
-        return '<section class="processo aberto"><h2>' + esc(tituloProcesso(p, comPrograma)) + ' <span class="etiqueta aberto">Aberto</span></h2>' + docsProcesso(p.docs) + '</section>';
+        var insc = p.inscricoes_ate ? '<p class="inscricoes">' + (p.inscricoes_ate >= hoje() ? 'Inscrições até ' : 'Inscrições encerradas em ') + fmtData(p.inscricoes_ate) + '</p>' : '';
+        return '<section class="processo aberto"><h2>' + esc(tituloProcesso(p, comPrograma)) + ' <span class="etiqueta aberto">Aberto</span></h2>' + insc + docsProcesso(p.docs) + '</section>';
       }).join('');
     } else {
       html += '<p class="vazio">Nenhum processo seletivo aberto no momento.</p>';
@@ -610,7 +613,10 @@
     html += '<section class="duas-colunas"><div><h2>Processos seletivos abertos</h2>' + (abertos.length ? '<ul class="lista">' + abertos.map(function (p) {
       var ultimo = p.docs.slice().sort(function (a, b) { return (b.data || '').localeCompare(a.data || ''); })[0];
       var href = paginaEditaisDe(p);
-      return '<li><div class="quando">' + (ultimo && ultimo.data ? diaMes(ultimo.data) : esc(p.ano)) + '</div><div><h3>' +
+      var quando;
+      if (p.inscricoes_ate) quando = diaMes(p.inscricoes_ate) + '<br><small>' + (p.inscricoes_ate >= hoje() ? 'inscrições até' : 'inscrições encerradas') + '</small>';
+      else quando = (ultimo && ultimo.data ? diaMes(ultimo.data) : esc(p.ano));
+      return '<li><div class="quando">' + quando + '</div><div><h3>' +
         (href ? '<a href="' + esc(href) + '">' + esc(tituloProcesso(p, true)) + '</a>' : esc(tituloProcesso(p, true))) + '</h3></div></li>';
     }).join('') + '</ul>' : '<p class="vazio">Nenhum processo seletivo aberto no momento.</p>') + '</div>' +
       '<div><h2>Próximos eventos' + (agendaItem ? '<a href="' + esc(hrefItem(agendaItem)) + '"' + (agendaExterna ? ' target="_blank" rel="noopener"' : '') + '>agenda completa</a>' : '') + '</h2>' +
