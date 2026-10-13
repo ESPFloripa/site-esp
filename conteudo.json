@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T13:50:08.581Z",
+ "gerado_em": "2026-10-13T14:53:02.980Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -682,13 +682,13 @@
   "certificados": {
    "titulo": "Certificados",
    "subtitulo": "Emissão, busca e verificação",
-   "corpo": "## Já participei de um evento e quero meu certificado\n\n{{servico:Busca de certificados}}\n\n## Quero verificar a autenticidade de um certificado\n\n{{servico:Verificação de certificados}}\n\n## Sou organizador e preciso emitir certificados\n\n(a preencher)",
+   "corpo": "## Já participei de um evento e quero meu certificado\n\n{{servico:Busca de certificados}}\n\n## Quero verificar a autenticidade de um certificado\n\n{{servico:Verificação de certificados}}",
    "arquivos": []
   },
   "eventos-externos": {
    "titulo": "Eventos de Educação Externos",
    "subtitulo": "Liberação para servidores e residentes",
-   "corpo": "## Eventos de curta duração\n\n(a preencher: link do sistema de liberação)\n\n## Eventos longos e pós-graduação\n\n(a preencher: link do sistema de liberação)",
+   "corpo": "## Eventos de curta duração\n\n{{servico:Liberação para eventos externos curtos}}\n\n## Eventos longos e pós-graduação\n\n{{servico:Liberação para eventos longos e pós-graduação}}",
    "arquivos": []
   },
   "premio-boas-praticas": {
@@ -736,7 +736,7 @@
   "submissao-projetos": {
    "titulo": "Submissão de Projetos de Pesquisa",
    "subtitulo": "",
-   "corpo": "(Conteúdo a preencher: fluxo e formulário.)",
+   "corpo": "{{servico:Submissão de projetos de pesquisa}}",
    "arquivos": []
   },
   "consulta-publica": {
