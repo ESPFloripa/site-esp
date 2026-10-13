@@ -83,6 +83,8 @@
   .texto th, .texto td { border: 1px solid var(--linha); padding: 6px 10px; text-align: left; vertical-align: top; }
   .texto th { background: var(--superficie); }
   .vazio { color: var(--cinza); font-style: italic; }
+  .servico-acesso { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 0 0 1.2em; }
+  .servico-acesso span { color: var(--cinza); font-size: 0.95rem; }
 
   .arquivos { margin-top: 32px; border-top: 1px solid var(--linha); padding-top: 16px; }
   .arquivos h2 { font-size: 1rem; color: var(--cinza); font-weight: 600; margin-bottom: 8px; }
@@ -250,8 +252,23 @@
   }
 
   /* Markdown mínimo: títulos, negrito, itálico, links, listas, citações, tabelas, parágrafos. HTML é mantido. */
+  function normaliza(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim(); }
+  function servicoPorNome(nome) {
+    var n = normaliza(nome);
+    return C.servicos.filter(function (s) { return normaliza(s.nome) === n; })[0];
+  }
+  function blocoServico(nome) {
+    var s = servicoPorNome(nome);
+    if (!s) return '<p class="vazio">Serviço "' + esc(nome) + '" não encontrado na aba SERVICOS.</p>';
+    if (!ehUrl(s.link)) return '<p class="vazio">' + esc(s.nome) + ': link ainda não informado.</p>';
+    return '<div class="servico-acesso"><a class="botao" href="' + esc(s.link) + '" target="_blank" rel="noopener">Acessar: ' + esc(s.nome) + '</a>' +
+      (s.descricao ? '<span>' + esc(s.descricao) + '</span>' : '') + '</div>';
+  }
   function md(texto) {
     if (!texto) return '';
+    texto = String(texto)
+      .replace(/\{\{\s*servicos\s*\}\}/gi, function () { return '\n' + cardsServicos(C.servicos) + '\n'; })
+      .replace(/\{\{\s*servico\s*:\s*([^}]+?)\s*\}\}/gi, function (m, nome) { return '\n' + blocoServico(nome) + '\n'; });
     var linhas = texto.replace(/\r/g, '').split('\n');
     var html = '', i = 0;
     function inline(s) {
@@ -502,7 +519,9 @@
     var proximos = C.eventos.filter(function (e) { return (e.data_fim || e.data_inicio) >= hj; }).slice(0, 5);
     var secoes = itensNivel1().filter(function (m) { return m.tipo === 'secao'; });
     var servicosItem = C.menu.filter(function (m) { return m.tipo === 'lista' && m.destino === 'servicos'; })[0];
-    var agendaItem = C.menu.filter(function (m) { return m.tipo === 'lista' && m.destino === 'eventos'; })[0];
+    var agendaItem = C.menu.filter(function (m) { return m.tipo === 'lista' && m.destino === 'eventos'; })[0] ||
+      C.menu.filter(function (m) { return m.tipo === 'link' && /agenda/i.test(m.rotulo); })[0];
+    var agendaExterna = agendaItem && agendaItem.tipo === 'link';
 
     var html = '<div class="hero"><div class="container"><h1>' + esc(cfg.nome || 'Escola de Saúde Pública') + '</h1>' + (cfg.descricao ? '<p>' + esc(cfg.descricao) + '</p>' : '') + '</div></div>';
     if (avisos.length) {
@@ -516,10 +535,12 @@
       html += '<section><h2>Serviços e sistemas' + (servicosItem ? '<a href="' + esc(hrefItem(servicosItem)) + '">ver todos</a>' : '') + '</h2>' + cardsServicos(C.servicos.slice(0, 4)) + '</section>';
     }
     html += '<section class="duas-colunas"><div><h2>Editais abertos</h2>' + (abertos.length ? listaEditais(abertos, false) : '<p class="vazio">Nenhum edital aberto no momento.</p>') + '</div>' +
-      '<div><h2>Próximos eventos' + (agendaItem ? '<a href="' + esc(hrefItem(agendaItem)) + '">agenda completa</a>' : '') + '</h2>' +
+      '<div><h2>Próximos eventos' + (agendaItem ? '<a href="' + esc(hrefItem(agendaItem)) + '"' + (agendaExterna ? ' target="_blank" rel="noopener"' : '') + '>agenda completa</a>' : '') + '</h2>' +
       (proximos.length ? '<ul class="lista">' + proximos.map(function (e) {
         return '<li><div class="quando">' + diaMes(e.data_inicio) + '</div><div><h3>' + (e.link ? '<a href="' + esc(e.link) + '" target="_blank" rel="noopener">' + esc(e.titulo) + '</a>' : esc(e.titulo)) + '</h3><div class="meta">' + [e.modalidade, e.local].filter(Boolean).map(esc).join(' — ') + '</div></div></li>';
-      }).join('') + '</ul>' : '<p class="vazio">Nenhum evento agendado no momento.</p>') + '</div></section>';
+      }).join('') + '</ul>' : (agendaExterna
+        ? '<p>A programação de eventos de educação permanente está na <a href="' + esc(agendaItem.destino) + '" target="_blank" rel="noopener">agenda do NEPS</a>.</p>'
+        : '<p class="vazio">Nenhum evento agendado no momento.</p>')) + '</div></section>';
     html += '<section><h2>Conheça a Escola</h2><ul class="secoes">' + secoes.map(function (s) {
       var f = filhos(s.id);
       return '<li><a class="sec" href="' + esc(hrefItem(s)) + '">' + esc(s.rotulo) + '</a><p>' + esc(f.slice(0, 4).map(function (x) { return x.rotulo; }).join(', ')) + (f.length > 4 ? '…' : '') + '</p></li>';
