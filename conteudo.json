@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T15:22:42.425Z",
+ "gerado_em": "2026-10-13T15:31:41.720Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -208,8 +208,8 @@
    "id": "saber-saude",
    "pai": "cursos",
    "grupo": "",
-   "tipo": "link",
-   "destino": "https://espfloripa.github.io/SaberSaude/"
+   "tipo": "pagina",
+   "destino": "Saber Saúde Floripa"
   },
   {
    "ordem": 2,
@@ -278,7 +278,7 @@
    "id": "oportunidades",
    "pai": "cursos",
    "grupo": "",
-   "tipo": "link",
+   "tipo": "pagina",
    "destino": "https://espfloripa.github.io/agenda_NEPS/"
   },
   {
@@ -743,6 +743,12 @@
    "titulo": "Consulta Pública",
    "subtitulo": "",
    "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "Saber Saúde Floripa": {
+   "titulo": "Repositório de Aulas e Cursos de curta duração no formato EAD",
+   "subtitulo": "",
+   "corpo": "Acesse o portal através do link: https://espfloripa.github.io/SaberSaude/",
    "arquivos": []
   }
  },
