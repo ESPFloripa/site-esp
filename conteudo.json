@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T15:31:41.720Z",
+ "gerado_em": "2026-10-13T15:50:10.268Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -746,8 +746,8 @@
    "arquivos": []
   },
   "Saber Saúde Floripa": {
-   "titulo": "Repositório de Aulas e Cursos de curta duração no formato EAD",
-   "subtitulo": "",
+   "titulo": "Saber Saúde Floripa",
+   "subtitulo": "Repositório de Aulas e Cursos de curta duração no formato EAD",
    "corpo": "Acesse o portal através do link: https://espfloripa.github.io/SaberSaude/",
    "arquivos": []
   }
