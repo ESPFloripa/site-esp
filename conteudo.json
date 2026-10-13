@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T13:17:54.483Z",
+ "gerado_em": "2026-10-13T13:50:08.581Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -676,13 +676,13 @@
   "proposicao-eventos": {
    "titulo": "Proposição de Eventos",
    "subtitulo": "Como propor um evento de educação na SMS",
-   "corpo": "(Conteúdo a preencher: fluxo, prazos e link para o sistema de proposição.)",
+   "corpo": "{{servico:Proposição de eventos}}\n\n(Complete aqui com o fluxo e os prazos.)",
    "arquivos": []
   },
   "certificados": {
    "titulo": "Certificados",
    "subtitulo": "Emissão, busca e verificação",
-   "corpo": "## Já participei de um evento e quero meu certificado\n\n(a preencher: link do portal de busca de certificados)\n\n## Quero verificar a autenticidade de um certificado\n\n(a preencher: link do verificador)\n\n## Sou organizador e preciso emitir certificados\n\n(a preencher)",
+   "corpo": "## Já participei de um evento e quero meu certificado\n\n{{servico:Busca de certificados}}\n\n## Quero verificar a autenticidade de um certificado\n\n{{servico:Verificação de certificados}}\n\n## Sou organizador e preciso emitir certificados\n\n(a preencher)",
    "arquivos": []
   },
   "eventos-externos": {
