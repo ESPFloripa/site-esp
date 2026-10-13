@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T12:50:11.607Z",
+ "gerado_em": "2026-10-13T13:17:54.483Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -148,8 +148,8 @@
    "id": "agenda",
    "pai": "eventos",
    "grupo": "",
-   "tipo": "lista",
-   "destino": "eventos"
+   "tipo": "link",
+   "destino": "https://espfloripa.github.io/agenda_NEPS/"
   },
   {
    "ordem": 1,
@@ -861,7 +861,7 @@
    "ordem": 1,
    "nome": "Busca de certificados",
    "descricao": "Recupere certificados de eventos e cursos que você já concluiu.",
-   "link": "",
+   "link": "https://script.google.com/a/macros/floripa.sc.gov.br/s/AKfycbzRwArc36GdpUvI_ItW0NhxVcW3YScWRtwpuYgzFXESUwbA7tvcO2ML95gfbvouPwYjqg/exec",
    "publico": "Público geral",
    "icone": "🎓"
   },
@@ -869,7 +869,7 @@
    "ordem": 2,
    "nome": "Verificação de certificados",
    "descricao": "Confira a autenticidade de um certificado emitido pela ESP.",
-   "link": "",
+   "link": "https://script.google.com/macros/s/AKfycby6jBPB5k0XVjY9ZE483-SWINPsX0Uz9zpO64Z7j6IsOvU25KdGRJpWGeI8UHVBihd9/exec",
    "publico": "Público geral",
    "icone": "✅"
   },
@@ -877,7 +877,7 @@
    "ordem": 3,
    "nome": "Reserva de salas e equipamentos",
    "descricao": "Agende salas e equipamentos da ESP.",
-   "link": "",
+   "link": "https://espfloripa.github.io/espacos_esp/",
    "publico": "Servidores",
    "icone": "📅"
   },
@@ -885,7 +885,7 @@
    "ordem": 4,
    "nome": "Liberação para eventos externos curtos",
    "descricao": "Solicite liberação para participar de eventos de curta duração.",
-   "link": "",
+   "link": "https://script.google.com/a/macros/floripa.sc.gov.br/s/AKfycbz9y40sLP1XDQ8fR_c7rvfYu6QH4_T-K5igXQ3wgLGFMzrChI5wVglFxzuoOw8O4J7c/exec",
    "publico": "Servidores",
    "icone": "✈️"
   },
@@ -893,7 +893,7 @@
    "ordem": 5,
    "nome": "Liberação para eventos longos e pós-graduação",
    "descricao": "Solicite liberação para cursos longos e pós-graduação.",
-   "link": "",
+   "link": "https://script.google.com/a/macros/floripa.sc.gov.br/s/AKfycbwjpUHSJuuSY9hZP5j06K-j2iCcpKFyl0GxePDAkF4GCTXqeGWLF8hBUY1g8aqTD6lI/exec",
    "publico": "Servidores",
    "icone": "📚"
   },
@@ -901,7 +901,7 @@
    "ordem": 6,
    "nome": "Licença Capacitação",
    "descricao": "Solicite a licença capacitação.",
-   "link": "",
+   "link": "https://script.google.com/a/macros/floripa.sc.gov.br/s/AKfycbw6ClX1emMnn7iRly5dQ5ws2_dSIcQlsQOJaseNbzdwZ2XmzBNm1mRIuHGunXEPGYGMLQ/exec",
    "publico": "Servidores",
    "icone": "📝"
   },
@@ -909,7 +909,7 @@
    "ordem": 7,
    "nome": "Proposição de eventos",
    "descricao": "Proponha um evento de educação na SMS.",
-   "link": "",
+   "link": "https://espfloripa.github.io/eventos/",
    "publico": "Servidores",
    "icone": "💡"
   },
@@ -917,7 +917,7 @@
    "ordem": 8,
    "nome": "Submissão de projetos de pesquisa",
    "descricao": "Submeta um projeto de pesquisa para apreciação.",
-   "link": "",
+   "link": "https://docs.google.com/forms/d/e/1FAIpQLSf4tCWaE44Ti0l-qnsooca-6QMPGhMYBFdljpeDbeahgsHwxA/viewform",
    "publico": "Público geral",
    "icone": "🔬"
   }
