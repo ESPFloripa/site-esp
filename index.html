@@ -134,7 +134,15 @@
   .grupo-titulo:first-child { margin-top: 0; }
 
   /* Página inicial */
-  .hero { background: var(--azul-escuro); color: #fff; padding: 48px 0 44px; }
+  .hero {
+    color: #fff; padding: 64px 0 60px; position: relative; isolation: isolate;
+    background: var(--azul-escuro) url("ponte-hercilio-luz.jpg") center 40% / cover no-repeat;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(90deg, rgba(10,51,88,0.94) 0%, rgba(10,51,88,0.88) 42%, rgba(10,51,88,0.45) 75%, rgba(10,51,88,0.3) 100%);
+  }
+  .hero h1, .hero p { text-shadow: 0 1px 3px rgba(0,0,0,0.35); }
   .hero h1 { color: #fff; font-size: 2.4rem; max-width: 22ch; }
   .hero p { max-width: 60ch; font-size: 1.15rem; margin: 16px 0 0; color: rgba(255,255,255,0.88); }
   .faixa-avisos { background: var(--verde-claro); border-bottom: 1px solid #CDE7E1; }
@@ -171,6 +179,7 @@
     .duas-colunas { grid-template-columns: 1fr; gap: 24px; }
     footer .container { grid-template-columns: 1fr; gap: 20px; }
     .hero h1 { font-size: 1.9rem; }
+    .hero::before { background: rgba(10,51,88,0.85); }
     h1 { font-size: 1.7rem; }
   }
   @media (max-width: 700px) {
