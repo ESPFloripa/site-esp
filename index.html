@@ -123,8 +123,15 @@
   .lista p { margin: 4px 0 0; color: var(--cinza); font-size: 0.97rem; }
   .lista .meta { font-size: 0.9rem; color: var(--cinza); margin-top: 4px; }
 
-  .filtros { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 18px; }
-  .filtros select { font: inherit; padding: 6px 10px; border: 1px solid var(--linha); border-radius: 6px; background: #fff; color: var(--texto); }
+  .processo { margin: 0 0 28px; }
+  .processo.aberto { padding: 16px 20px 4px; border: 1px solid #CDE7E1; border-left: 4px solid var(--verde); border-radius: 8px; background: #F7FCFA; }
+  .processo h2 { font-size: 1.2rem; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+  .processo h3 { font-size: 1rem; color: var(--cinza); margin: 12px 0 0; }
+  .processo .lista li:last-child { border-bottom: 0; }
+  .processo.aberto .docs .etiqueta.aberto { display: none; }
+  details.ano { border-top: 1px solid var(--linha); }
+  details.ano summary { cursor: pointer; padding: 12px 0; font-weight: 700; color: var(--azul-escuro); font-size: 1.05rem; }
+  details.ano[open] summary { color: var(--verde); }
 
   .equipe { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; list-style: none; margin: 0; padding: 0; }
   .equipe li { text-align: left; }
@@ -389,55 +396,98 @@
     return '<header><h1>' + esc(p.nome) + '</h1>' + (p.resumo ? '<p class="subtitulo">' + esc(p.resumo) + '</p>' : '') + '</header>' +
       (campos.length ? '<dl class="ficha">' + campos.map(function (c) { return '<div><dt>' + esc(c[0]) + '</dt><dd>' + esc(c[1]) + '</dd></div>'; }).join('') + '</dl>' : '') +
       '<div class="texto">' + md(p.corpo) + '</div>' + arquivos(p.arquivos) +
-      (editais.length ? '<div class="arquivos"><h2>Editais e documentos do programa</h2>' + listaEditais(editais, false) + '</div>' : '');
+      (editais.length ? '<div class="arquivos"><h2>Editais e documentos do programa</h2>' + blocoProcessos(editais, false) + '</div>' : '');
   }
 
+  /* ---------- editais e processos seletivos ---------- */
+  // Status efetivo: a partir de "Encerra em" o documento é tratado como encerrado,
+  // sem depender de alguém mudar a coluna Status.
+  function statusEfetivo(e) {
+    if (e.encerra_em && e.encerra_em < hoje()) return 'Encerrado';
+    return e.status || '';
+  }
+  function ehAberto(e) { return /aberto|andamento/i.test(statusEfetivo(e)); }
   function etiquetaStatus(s) {
     var cls = /aberto/i.test(s) ? 'aberto' : /andamento/i.test(s) ? 'andamento' : 'encerrado';
     return s ? '<span class="etiqueta ' + cls + '">' + esc(s) + '</span>' : '';
   }
 
-  function listaEditais(lista, comFiltro) {
-    if (!lista.length) return '<p class="vazio">Nenhum edital publicado no momento.</p>';
-    var anos = [], tipos = [];
-    lista.forEach(function (e) { if (e.ano && anos.indexOf(e.ano) < 0) anos.push(e.ano); if (e.tipo && tipos.indexOf(e.tipo) < 0) tipos.push(e.tipo); });
-    anos.sort().reverse();
-    var filtro = comFiltro ? '<div class="filtros">' +
-      '<select id="f-ano" aria-label="Ano"><option value="">Todos os anos</option>' + anos.map(function (a) { return '<option>' + esc(a) + '</option>'; }).join('') + '</select>' +
-      '<select id="f-tipo" aria-label="Tipo"><option value="">Todos os tipos</option>' + tipos.map(function (t) { return '<option>' + esc(t) + '</option>'; }).join('') + '</select>' +
-      '<select id="f-status" aria-label="Status"><option value="">Qualquer status</option><option>Aberto</option><option>Em andamento</option><option>Encerrado</option></select></div>' : '';
-    return filtro + '<ul class="lista" id="lista-editais">' + lista.map(function (e) {
-      var prog = C.programas[e.programa];
-      return '<li data-ano="' + esc(e.ano) + '" data-tipo="' + esc(e.tipo) + '" data-status="' + esc(e.status) + '">' +
-        '<div class="quando">' + (e.data ? diaMes(e.data) : esc(e.ano)) + '</div>' +
+  // Agrupa documentos em processos (ano + programa) e devolve-os ordenados:
+  // abertos primeiro, depois por ano decrescente.
+  function agruparProcessos(lista) {
+    var mapa = {}, ordem = [];
+    lista.forEach(function (e) {
+      var chave = (e.ano || '') + '|' + (e.programa || e.grupo || '');
+      if (!mapa[chave]) {
+        var prog = C.programas[e.programa];
+        mapa[chave] = { chave: chave, ano: e.ano, programa: e.programa, nome: prog ? prog.nome : (e.programa || ''), docs: [], aberto: false };
+        ordem.push(chave);
+      }
+      mapa[chave].docs.push(e);
+      if (ehAberto(e)) mapa[chave].aberto = true;
+    });
+    return ordem.map(function (c) { return mapa[c]; }).sort(function (a, b) {
+      if (a.aberto !== b.aberto) return a.aberto ? -1 : 1;
+      return (b.ano || '').localeCompare(a.ano || '') || a.nome.localeCompare(b.nome);
+    });
+  }
+
+  function docsProcesso(docs) {
+    return '<ul class="lista docs">' + docs.map(function (e) {
+      var st = statusEfetivo(e);
+      return '<li><div class="quando">' + (e.data ? diaMes(e.data) : esc(e.ano)) + '</div>' +
         '<div><h3>' + (e.link ? '<a href="' + esc(e.link) + '" target="_blank" rel="noopener">' + esc(e.titulo) + '</a>' : esc(e.titulo)) + '</h3>' +
-        '<div class="meta">' + etiquetaStatus(e.status) + (e.tipo ? ' <span class="etiqueta">' + esc(e.tipo) + '</span>' : '') + (prog && comFiltro ? ' <span class="etiqueta">' + esc(prog.nome) + '</span>' : '') + '</div></div></li>';
+        (e.observacao ? '<p>' + esc(e.observacao) + '</p>' : '') +
+        '<div class="meta">' + (e.tipo ? '<span class="etiqueta">' + esc(e.tipo) + '</span> ' : '') + etiquetaStatus(st) + '</div></div></li>';
     }).join('') + '</ul>';
   }
 
-  function ligarFiltros() {
-    var sels = ['f-ano', 'f-tipo', 'f-status'].map(function (id) { return document.getElementById(id); });
-    if (!sels[0]) return;
-    function aplicar() {
-      var v = sels.map(function (s) { return s.value; });
-      document.querySelectorAll('#lista-editais li').forEach(function (li) {
-        var ok = (!v[0] || li.dataset.ano === v[0]) && (!v[1] || li.dataset.tipo === v[1]) && (!v[2] || li.dataset.status === v[2]);
-        li.style.display = ok ? '' : 'none';
-      });
-    }
-    sels.forEach(function (s) { s.addEventListener('change', aplicar); });
+  function tituloProcesso(p, comPrograma) {
+    var partes = [];
+    if (comPrograma && p.nome) partes.push(p.nome);
+    if (p.ano) partes.push('Ingresso ' + p.ano);
+    return partes.join(' — ') || 'Processo';
   }
 
-  function blocoEditais(itemMenu) {
+  // Página de processos: abertos em destaque; anteriores recolhidos por ano.
+  function blocoProcessos(lista, comPrograma) {
+    if (!lista.length) return '<p class="vazio">Nenhum edital publicado no momento.</p>';
+    var procs = agruparProcessos(lista);
+    var abertos = procs.filter(function (p) { return p.aberto; });
+    var anteriores = procs.filter(function (p) { return !p.aberto; });
+    var html = '';
+    if (abertos.length) {
+      html += abertos.map(function (p) {
+        return '<section class="processo aberto"><h2>' + esc(tituloProcesso(p, comPrograma)) + ' <span class="etiqueta aberto">Aberto</span></h2>' + docsProcesso(p.docs) + '</section>';
+      }).join('');
+    } else {
+      html += '<p class="vazio">Nenhum processo seletivo aberto no momento.</p>';
+    }
+    if (anteriores.length) {
+      var anos = [], porAno = {};
+      anteriores.forEach(function (p) { var a = p.ano || 'Sem ano'; if (!porAno[a]) { porAno[a] = []; anos.push(a); } porAno[a].push(p); });
+      html += '<h2 class="grupo-titulo">Processos anteriores — encerrados</h2>' + anos.map(function (a) {
+        return '<details class="ano"><summary>' + esc(a) + '</summary>' + porAno[a].map(function (p) {
+          return '<section class="processo">' + (comPrograma && p.nome ? '<h3>' + esc(p.nome) + '</h3>' : '') + docsProcesso(p.docs) + '</section>';
+        }).join('') + '</details>';
+      }).join('');
+    }
+    return html;
+  }
+
+  function filtrarEditais(destino) {
     var f = {};
-    (itemMenu.destino || '').split(';').forEach(function (par) {
+    (destino || '').split(';').forEach(function (par) {
       var kv = par.split('=');
       if (kv.length === 2) f[kv[0].trim()] = kv[1].split(',').map(function (x) { return x.trim(); });
     });
-    var lista = C.editais.filter(function (e) {
+    return C.editais.filter(function (e) {
       return (!f.grupo || f.grupo.indexOf(e.grupo) >= 0) && (!f.tipo || f.tipo.indexOf(e.tipo) >= 0) && (!f.programa || f.programa.indexOf(e.programa) >= 0);
     });
-    return '<header><h1>' + esc(itemMenu.rotulo) + '</h1></header>' + listaEditais(lista, true);
+  }
+
+  function blocoEditais(itemMenu) {
+    return '<header><h1>' + esc(itemMenu.rotulo) + '</h1></header>' + blocoProcessos(filtrarEditais(itemMenu.destino), true);
   }
 
   function blocoLista(tipo, titulo) {
@@ -518,7 +568,12 @@
   function paginaInicial() {
     var cfg = C.config, hj = hoje();
     var avisos = C.avisos.filter(function (a) { return !a.valido_ate || a.valido_ate >= hj; });
-    var abertos = C.editais.filter(function (e) { return /aberto|andamento/i.test(e.status); }).slice(0, 6);
+    var abertos = agruparProcessos(C.editais.filter(ehAberto)).slice(0, 6);
+    var paginaEditaisDe = function (p) {
+      var grupo = (C.programas[p.programa] || {}).grupo || '';
+      var it = C.menu.filter(function (m) { return m.tipo === 'editais' && filtrarEditais(m.destino).some(function (e) { return e.ano === p.ano && (e.programa || e.grupo) === (p.programa || grupo); }); })[0];
+      return it ? hrefItem(it) : '';
+    };
     var proximos = C.eventos.filter(function (e) { return (e.data_fim || e.data_inicio) >= hj; }).slice(0, 5);
     var secoes = itensNivel1().filter(function (m) { return m.tipo === 'secao'; });
     var servicosItem = C.menu.filter(function (m) { return m.tipo === 'lista' && m.destino === 'servicos'; })[0];
@@ -537,7 +592,14 @@
     if (C.servicos.length) {
       html += '<section><h2>Serviços e sistemas' + (servicosItem ? '<a href="' + esc(hrefItem(servicosItem)) + '">ver todos</a>' : '') + '</h2>' + cardsServicos(C.servicos.slice(0, 4)) + '</section>';
     }
-    html += '<section class="duas-colunas"><div><h2>Editais abertos</h2>' + (abertos.length ? listaEditais(abertos, false) : '<p class="vazio">Nenhum edital aberto no momento.</p>') + '</div>' +
+    html += '<section class="duas-colunas"><div><h2>Processos seletivos abertos</h2>' + (abertos.length ? '<ul class="lista">' + abertos.map(function (p) {
+      var ultimo = p.docs.slice().sort(function (a, b) { return (b.data || '').localeCompare(a.data || ''); })[0];
+      var href = paginaEditaisDe(p);
+      return '<li><div class="quando">' + (ultimo && ultimo.data ? diaMes(ultimo.data) : esc(p.ano)) + '</div><div><h3>' +
+        (href ? '<a href="' + esc(href) + '">' + esc(tituloProcesso(p, true)) + '</a>' : esc(tituloProcesso(p, true))) + '</h3>' +
+        (ultimo ? '<p>' + (ultimo.link ? '<a href="' + esc(ultimo.link) + '" target="_blank" rel="noopener">' + esc(ultimo.titulo) + '</a>' : esc(ultimo.titulo)) + (ultimo.observacao ? ' — ' + esc(ultimo.observacao) : '') + '</p>' : '') +
+        '<div class="meta">' + p.docs.length + (p.docs.length === 1 ? ' documento' : ' documentos') + '</div></div></li>';
+    }).join('') + '</ul>' : '<p class="vazio">Nenhum processo seletivo aberto no momento.</p>') + '</div>' +
       '<div><h2>Próximos eventos' + (agendaItem ? '<a href="' + esc(hrefItem(agendaItem)) + '"' + (agendaExterna ? ' target="_blank" rel="noopener"' : '') + '>agenda completa</a>' : '') + '</h2>' +
       (proximos.length ? '<ul class="lista">' + proximos.map(function (e) {
         return '<li><div class="quando">' + diaMes(e.data_inicio) + '</div><div><h3>' + (e.link ? '<a href="' + esc(e.link) + '" target="_blank" rel="noopener">' + esc(e.titulo) + '</a>' : esc(e.titulo)) + '</h3><div class="meta">' + [e.modalidade, e.local].filter(Boolean).map(esc).join(' — ') + '</div></div></li>';
@@ -633,7 +695,6 @@
       '<div class="container pagina' + (temLateral ? '' : ' sem-lateral') + '">' + (temLateral ? lateral(secao, atual ? atual.id : '') : '') +
       '<article class="conteudo">' + bloco + '</article></div>';
     document.title = (rotuloAtual || secao.rotulo) + ' — ' + titulo;
-    ligarFiltros();
   }
 
   function naoEncontrada() {
