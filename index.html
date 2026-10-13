@@ -661,6 +661,10 @@
     var faixa = document.getElementById('faixa-indicadores');
     if (!faixa) return;
     var api = ehUrl(C.config.painel_api) ? C.config.painel_api : URL_PAINEL_PADRAO;
+    // Link público do painel: o item de menu "Painel de Indicadores" (tipo link),
+    // ou a chave painel_url da CONFIG; em último caso, o próprio Web App.
+    var itemPainel = C.menu.filter(function (m) { return m.tipo === 'link' && /painel/i.test(m.rotulo); })[0];
+    var urlPainel = itemPainel ? itemPainel.destino : (ehUrl(C.config.painel_url) ? C.config.painel_url : api);
     var fmtN = function (n) { return Number(n || 0).toLocaleString('pt-BR'); };
 
     fetch(api + '?formato=json')
@@ -678,7 +682,7 @@
         ];
         faixa.innerHTML = '<div class="container"><ul>' + cartoes.map(function (c) {
           return '<li><span class="rotulo">' + esc(c.rotulo) + '</span><strong>' + c.valor + '</strong><span class="sub">' + esc(c.sub) + '</span></li>';
-        }).join('') + '</ul><p class="fonte">Indicadores de ' + esc(String(ano)) + ' · <a href="' + esc(api) + '" target="_blank" rel="noopener">ver o Painel de Indicadores completo</a></p></div>';
+        }).join('') + '</ul><p class="fonte">Indicadores de ' + esc(String(ano)) + ' · <a href="' + esc(urlPainel) + '" target="_blank" rel="noopener">ver o Painel de Indicadores completo</a></p></div>';
         faixa.hidden = false;
       })
       .catch(function () { /* sem painel, sem faixa */ });
