@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T16:34:31.223Z",
+ "gerado_em": "2026-10-13T17:50:10.222Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -510,6 +510,16 @@
    "grupo": "",
    "tipo": "pagina",
    "destino": "consulta-publica"
+  },
+  {
+   "ordem": 9,
+   "nivel": 2,
+   "rotulo": "Painel de Indicadores",
+   "id": "painel-indicadores",
+   "pai": "escola",
+   "grupo": "",
+   "tipo": "link",
+   "destino": "https://espfloripa.github.io/painel_de_indicadores/"
   },
   {
    "ordem": 10,
