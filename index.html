@@ -611,9 +611,7 @@
       var ultimo = p.docs.slice().sort(function (a, b) { return (b.data || '').localeCompare(a.data || ''); })[0];
       var href = paginaEditaisDe(p);
       return '<li><div class="quando">' + (ultimo && ultimo.data ? diaMes(ultimo.data) : esc(p.ano)) + '</div><div><h3>' +
-        (href ? '<a href="' + esc(href) + '">' + esc(tituloProcesso(p, true)) + '</a>' : esc(tituloProcesso(p, true))) + '</h3>' +
-        (ultimo ? '<p>' + (ultimo.link ? '<a href="' + esc(ultimo.link) + '" target="_blank" rel="noopener">' + esc(ultimo.titulo) + '</a>' : esc(ultimo.titulo)) + (ultimo.observacao ? ' — ' + esc(ultimo.observacao) : '') + '</p>' : '') +
-        '<div class="meta">' + p.docs.length + (p.docs.length === 1 ? ' documento' : ' documentos') + '</div></div></li>';
+        (href ? '<a href="' + esc(href) + '">' + esc(tituloProcesso(p, true)) + '</a>' : esc(tituloProcesso(p, true))) + '</h3></div></li>';
     }).join('') + '</ul>' : '<p class="vazio">Nenhum processo seletivo aberto no momento.</p>') + '</div>' +
       '<div><h2>Próximos eventos' + (agendaItem ? '<a href="' + esc(hrefItem(agendaItem)) + '"' + (agendaExterna ? ' target="_blank" rel="noopener"' : '') + '>agenda completa</a>' : '') + '</h2>' +
       (proximos.length ? '<ul class="lista">' + proximos.map(function (e) {
