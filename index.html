@@ -224,6 +224,9 @@
 (function () {
   'use strict';
   var C = null; // conteúdo carregado
+  // Web App da Agenda NEPS; com ?formato=json devolve os próximos eventos.
+  // Pode ser trocada pela chave agenda_api na aba CONFIG da planilha.
+  var URL_AGENDA_PADRAO = 'https://script.google.com/macros/s/AKfycbxHz8kDViCyiOlQT0iSkG6lkoPvVNmSajDYyD7UkXxQ6qUzRZdPHEL4VfOLw0TUG9M3/exec';
   var $main = document.getElementById('conteudo');
 
   /* ---------- utilitários ---------- */
@@ -539,7 +542,7 @@
       (proximos.length ? '<ul class="lista">' + proximos.map(function (e) {
         return '<li><div class="quando">' + diaMes(e.data_inicio) + '</div><div><h3>' + (e.link ? '<a href="' + esc(e.link) + '" target="_blank" rel="noopener">' + esc(e.titulo) + '</a>' : esc(e.titulo)) + '</h3><div class="meta">' + [e.modalidade, e.local].filter(Boolean).map(esc).join(' — ') + '</div></div></li>';
       }).join('') + '</ul>' : (agendaExterna
-        ? '<p>A programação de eventos de educação permanente está na <a href="' + esc(agendaItem.destino) + '" target="_blank" rel="noopener">agenda do NEPS</a>.</p>'
+        ? '<div id="previa-agenda"><p class="vazio">Carregando a agenda…</p></div>'
         : '<p class="vazio">Nenhum evento agendado no momento.</p>')) + '</div></section>';
     html += '<section><h2>Conheça a Escola</h2><ul class="secoes">' + secoes.map(function (s) {
       var f = filhos(s.id);
@@ -547,6 +550,33 @@
     }).join('') + '</ul></section>';
     html += '</div>';
     return html;
+  }
+
+  /* ---------- prévia da Agenda NEPS ---------- */
+  function carregarPreviaAgenda() {
+    var alvo = document.getElementById('previa-agenda');
+    if (!alvo) return;
+    var agendaItem = C.menu.filter(function (m) { return m.tipo === 'link' && /agenda/i.test(m.rotulo); })[0];
+    var urlAgenda = agendaItem ? agendaItem.destino : '';
+    var api = ehUrl(C.config.agenda_api) ? C.config.agenda_api : URL_AGENDA_PADRAO;
+    var fallback = '<p>A programação de eventos de educação permanente está na <a href="' + esc(urlAgenda) + '" target="_blank" rel="noopener">agenda do NEPS</a>.</p>';
+
+    fetch(api + '?formato=json&n=4')
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (json) {
+        var evs = (json && json.eventos) || [];
+        if (!evs.length) { alvo.innerHTML = '<p class="vazio">Nenhum evento agendado no momento.</p>'; return; }
+        alvo.innerHTML = '<ul class="lista">' + evs.map(function (e) {
+          var periodo = (e.dataFim && e.dataFim !== e.dataInicio) ? 'até ' + fmtData(e.dataFim) : '';
+          if (e.encontros && e.encontros.length > 1) periodo = e.encontros.length + ' encontros' + (periodo ? ', ' + periodo : '');
+          var meta = [e.modalidade, e.local].filter(Boolean).map(esc).join(' — ');
+          var href = ehUrl(e.linkInscricao) ? e.linkInscricao : urlAgenda;
+          return '<li><div class="quando">' + diaMes(e.dataInicio) + (periodo ? '<br><small>' + esc(periodo) + '</small>' : '') + '</div>' +
+            '<div><h3><a href="' + esc(href) + '" target="_blank" rel="noopener">' + esc(e.nome) + '</a></h3>' +
+            (meta ? '<div class="meta">' + meta + '</div>' : '') + '</div></li>';
+        }).join('') + '</ul>';
+      })
+      .catch(function () { alvo.innerHTML = fallback; });
   }
 
   /* ---------- rodapé ---------- */
@@ -571,6 +601,7 @@
       montarNav('inicio');
       $main.innerHTML = paginaInicial();
       document.title = cfg.nome || titulo;
+      carregarPreviaAgenda();
       return;
     }
     var secao = item(partes[0]);
