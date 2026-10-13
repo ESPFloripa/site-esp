@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T17:50:10.222Z",
+ "gerado_em": "2026-10-13T18:00:12.505Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -279,7 +279,7 @@
    "pai": "cursos",
    "grupo": "",
    "tipo": "pagina",
-   "destino": "https://espfloripa.github.io/agenda_NEPS/"
+   "destino": "Eventos e cursos"
   },
   {
    "ordem": 3,
@@ -759,6 +759,12 @@
    "titulo": "Saber Saúde Floripa",
    "subtitulo": "Repositório de Aulas e Cursos de curta duração no formato EAD",
    "corpo": "Acesse o portal através do link: https://espfloripa.github.io/SaberSaude/",
+   "arquivos": []
+  },
+  "Eventos e cursos": {
+   "titulo": "Eventos e cursos",
+   "subtitulo": "Agenda do Núcleo de Educação Permanente em Saúde",
+   "corpo": "Acesse a agenda através do link: https://espfloripa.github.io/agenda_NEPS/",
    "arquivos": []
   }
  },
