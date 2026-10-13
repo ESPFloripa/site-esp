@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T19:01:28.898Z",
+ "gerado_em": "2026-10-13T19:17:05.669Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -8,12 +8,12 @@
   "logo_url": "",
   "cor_primaria": "#0F4C81",
   "cor_destaque": "#1E8C7A",
-  "endereco": "PREENCHER — endereço da ESP",
-  "telefone": "",
+  "endereco": "Sede: Av. Prof. Henrique da Silva Fontes, 6100 - Trindade, Florianópolis - SC, 88036-700\nEspaço Multi: Av. Dep. Diomício Freitas, 3393, 2o andar - Carianos, Florianópolis - SC, 88047-900, junto ao Multihospital.",
+  "telefone": "48 32391593",
   "email": "espfloripa.sms@floripa.sc.gov.br",
-  "instagram": "Siga a ESP Floripa no Instagram",
+  "instagram": "https://instagram.com/espfloripa?xtok=cmp0aG10bTV3emdo",
   "facebook": "",
-  "youtube": "Canal da ESP Floripa no Youtube",
+  "youtube": "https://www.youtube.com/@EspFloripa",
   "linkedin": "",
   "github_owner": "espfloripa",
   "github_repo": "site-esp",
@@ -948,71 +948,71 @@
   },
   {
    "ordem": 2,
+   "nome": "Lucilene",
+   "funcao": "Chefe de Departamento",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 3,
    "nome": "Andrea",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
-   "ordem": 3,
+   "ordem": 4,
    "nome": "Cibelle",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
-   "ordem": 4,
+   "ordem": 5,
    "nome": "Denise",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
-   "ordem": 5,
+   "ordem": 6,
    "nome": "Edenice",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
-   "ordem": 6,
+   "ordem": 7,
    "nome": "Evelise",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
-   "ordem": 7,
+   "ordem": 8,
    "nome": "Evelyn",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
-   "ordem": 8,
+   "ordem": 9,
    "nome": "Fernanda",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
-   "ordem": 9,
+   "ordem": 10,
    "nome": "Grazi",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
-   "ordem": 10,
+   "ordem": 11,
    "nome": "Lucas",
    "funcao": "Estagiário",
-   "email": "",
-   "foto": ""
-  },
-  {
-   "ordem": 11,
-   "nome": "Lucilene",
-   "funcao": "Chefe de Departamento",
    "email": "",
    "foto": ""
   },
@@ -1082,19 +1082,19 @@
   },
   {
    "ordem": 7,
-   "nome": "Verificação de certificados",
-   "descricao": "Confira a autenticidade de um certificado emitido pela ESP.",
-   "link": "https://script.google.com/macros/s/AKfycby6jBPB5k0XVjY9ZE483-SWINPsX0Uz9zpO64Z7j6IsOvU25KdGRJpWGeI8UHVBihd9/exec",
-   "publico": "Público geral",
-   "icone": "✅"
-  },
-  {
-   "ordem": 8,
    "nome": "Submissão de projetos de pesquisa",
    "descricao": "Submeta um projeto de pesquisa para apreciação.",
    "link": "https://docs.google.com/forms/d/e/1FAIpQLSf4tCWaE44Ti0l-qnsooca-6QMPGhMYBFdljpeDbeahgsHwxA/viewform",
    "publico": "Público geral",
    "icone": "🔬"
+  },
+  {
+   "ordem": 8,
+   "nome": "Verificação de certificados",
+   "descricao": "Confira a autenticidade de um certificado emitido pela ESP.",
+   "link": "https://script.google.com/macros/s/AKfycby6jBPB5k0XVjY9ZE483-SWINPsX0Uz9zpO64Z7j6IsOvU25KdGRJpWGeI8UHVBihd9/exec",
+   "publico": "Público geral",
+   "icone": "✅"
   }
  ],
  "documentos": [],
