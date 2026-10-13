@@ -567,11 +567,13 @@
         var evs = (json && json.eventos) || [];
         if (!evs.length) { alvo.innerHTML = '<p class="vazio">Nenhum evento agendado no momento.</p>'; return; }
         alvo.innerHTML = '<ul class="lista">' + evs.map(function (e) {
-          var periodo = (e.dataFim && e.dataFim !== e.dataInicio) ? 'até ' + fmtData(e.dataFim) : '';
-          if (e.encontros && e.encontros.length > 1) periodo = e.encontros.length + ' encontros' + (periodo ? ', ' + periodo : '');
+          var quando = e.proximaData || e.dataInicio;
+          var detalhe = '';
+          if (e.totalEncontros > 1) detalhe = 'encontro ' + e.encontroIndice + ' de ' + e.totalEncontros;
+          if (e.dataFim && e.dataFim > quando) detalhe += (detalhe ? ', ' : '') + 'até ' + fmtData(e.dataFim);
           var meta = [e.modalidade, e.local].filter(Boolean).map(esc).join(' — ');
           var href = ehUrl(e.linkInscricao) ? e.linkInscricao : urlAgenda;
-          return '<li><div class="quando">' + diaMes(e.dataInicio) + (periodo ? '<br><small>' + esc(periodo) + '</small>' : '') + '</div>' +
+          return '<li><div class="quando">' + diaMes(quando) + (detalhe ? '<br><small>' + esc(detalhe) + '</small>' : '') + '</div>' +
             '<div><h3><a href="' + esc(href) + '" target="_blank" rel="noopener">' + esc(e.nome) + '</a></h3>' +
             (meta ? '<div class="meta">' + meta + '</div>' : '') + '</div></li>';
         }).join('') + '</ul>';
