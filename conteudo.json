@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T14:53:02.980Z",
+ "gerado_em": "2026-10-13T15:07:07.105Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -278,8 +278,8 @@
    "id": "oportunidades",
    "pai": "cursos",
    "grupo": "",
-   "tipo": "lista",
-   "destino": "oportunidades"
+   "tipo": "link",
+   "destino": "https://espfloripa.github.io/agenda_NEPS/"
   },
   {
    "ordem": 3,
@@ -676,7 +676,7 @@
   "proposicao-eventos": {
    "titulo": "Proposição de Eventos",
    "subtitulo": "Como propor um evento de educação na SMS",
-   "corpo": "{{servico:Proposição de eventos}}\n\n(Complete aqui com o fluxo e os prazos.)",
+   "corpo": "{{servico:Proposição de eventos}}\n\nPara maiores informações consulte o guia disponível através do botão \"Ler Guia\" no formulário de proposição.",
    "arquivos": []
   },
   "certificados": {
@@ -855,7 +855,99 @@
  "editais": [],
  "eventos": [],
  "oportunidades": [],
- "equipe": [],
+ "equipe": [
+  {
+   "ordem": 1,
+   "nome": "Alessandra",
+   "funcao": "Diretora da ESP",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 2,
+   "nome": "Andrea",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 3,
+   "nome": "Cibelle",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 4,
+   "nome": "Denise",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 5,
+   "nome": "Edenice",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 6,
+   "nome": "Evelise",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 7,
+   "nome": "Evelyn",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 8,
+   "nome": "Fernanda",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 9,
+   "nome": "Grazi",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 10,
+   "nome": "Lucas",
+   "funcao": "Estagiário",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 11,
+   "nome": "Lucilene",
+   "funcao": "Chefe de Departamento",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 12,
+   "nome": "Nulvio",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 13,
+   "nome": "Thais",
+   "funcao": "Assessor",
+   "email": "",
+   "foto": ""
+  }
+ ],
  "servicos": [
   {
    "ordem": 1,
