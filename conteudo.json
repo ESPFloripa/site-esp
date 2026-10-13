@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-13T16:23:31.938Z",
+ "gerado_em": "2026-10-13T16:34:31.223Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -866,10 +866,70 @@
    "tipo": "Processo Seletivo",
    "titulo": "Edital de abertura do processo seletivo 2027 PROGRAMA DE RESIDÊNCIA MULTIPROFISSIONAL EM SAÚDE DA FAMÍLIA",
    "link": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/08_09_2026_14.28.04.c2ad8aeac8aa0fe776337f93610d544e.pdf",
-   "data": "2026-11-01",
+   "data": "2026-10-20",
    "status": "Aberto",
    "encerra_em": "2026-10-20",
    "observacao": "Inscrições de 11/09/26 a 20/10/26, Prova dia 22/11/2026"
+  },
+  {
+   "ano": "2027",
+   "grupo": "multi",
+   "programa": "rms-gestao",
+   "tipo": "Processo Seletivo",
+   "titulo": "Edital de abertura do processo seletivo 2027 PROGRAMA DE RESIDÊNCIA UNIPROFISSIONAL EM ENFERMAGEM EM APS",
+   "link": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/08_09_2026_14.28.04.c2ad8aeac8aa0fe776337f93610d544e.pdf",
+   "data": "2026-10-20",
+   "status": "Aberto",
+   "encerra_em": "2026-10-20",
+   "observacao": "Inscrições de 11/09/26 a 20/10/26, Prova dia 22/11/2027"
+  },
+  {
+   "ano": "2027",
+   "grupo": "multi",
+   "programa": "ru-enfermagem-aps",
+   "tipo": "Processo Seletivo",
+   "titulo": "Edital de abertura do processo seletivo 2027 PROGRAMA DE RESIDÊNCIA MULTIPROFISSIONAL EM GESTÃO EM SAÚDE",
+   "link": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/08_09_2026_14.28.04.c2ad8aeac8aa0fe776337f93610d544e.pdf",
+   "data": "2026-10-20",
+   "status": "Aberto",
+   "encerra_em": "2026-10-20",
+   "observacao": "Inscrições de 11/09/26 a 20/10/26, Prova dia 22/11/2028"
+  },
+  {
+   "ano": "2027",
+   "grupo": "medica",
+   "programa": "rm-mfc",
+   "tipo": "Processo Seletivo",
+   "titulo": "Edital de abertura do processo seletivo 2027 PROGRAMA DE RESIDÊNCIA EM MEDICINA DE FAMÍLIA E COMUNIDADE R3",
+   "link": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/04_09_2026_10.49.27.e6a57586d166bdaec0123caa7b79f2e8.pdf",
+   "data": "2026-10-20",
+   "status": "Aberto",
+   "encerra_em": "2026-10-19",
+   "observacao": "Inscrições de 11/09/26 a 19/10/26, Prova dia 22/11/2029"
+  },
+  {
+   "ano": "2027",
+   "grupo": "medica",
+   "programa": "rm-mfc",
+   "tipo": "Processo Seletivo",
+   "titulo": "Edital de abertura do processo seletivo 2027 PROGRAMA DE RESIDÊNCIA EM MEDICINA DE FAMÍLIA E COMUNIDADE",
+   "link": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/04_09_2026_10.49.27.e6a57586d166bdaec0123caa7b79f2e8.pdf",
+   "data": "2026-10-20",
+   "status": "Aberto",
+   "encerra_em": "2026-10-19",
+   "observacao": "Inscrições de 11/09/26 a 19/10/26, Prova dia 22/11/2030"
+  },
+  {
+   "ano": "2027",
+   "grupo": "medica",
+   "programa": "rm-psiquiatria",
+   "tipo": "Processo Seletivo",
+   "titulo": "Edital de abertura do processo seletivo 2027 PROGRAMA DE RESIDÊNCIA EM PSIQUIATRIA",
+   "link": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/04_09_2026_10.49.27.e6a57586d166bdaec0123caa7b79f2e8.pdf",
+   "data": "2026-10-20",
+   "status": "Aberto",
+   "encerra_em": "2026-10-19",
+   "observacao": "Inscrições de 11/09/26 a 19/10/26, Prova dia 22/11/2031"
   }
  ],
  "eventos": [],
