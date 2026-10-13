@@ -154,6 +154,14 @@
   .hero h1, .hero p { text-shadow: 0 1px 3px rgba(0,0,0,0.35); }
   .hero h1 { color: #fff; font-size: 2.4rem; max-width: 22ch; }
   .hero p { max-width: 60ch; font-size: 1.15rem; margin: 16px 0 0; color: rgba(255,255,255,0.88); }
+  .indicadores { background: var(--superficie); border-bottom: 1px solid var(--linha); }
+  .indicadores ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; transform: translateY(-28px); }
+  .indicadores li { background: #fff; border: 1px solid var(--linha); border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 6px 18px rgba(10,51,88,0.08); }
+  .indicadores .rotulo { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--cinza); }
+  .indicadores strong { font-size: 2rem; line-height: 1.1; color: var(--azul-escuro); letter-spacing: -0.01em; }
+  .indicadores strong .de { font-size: 1rem; font-weight: 600; color: var(--cinza); letter-spacing: 0; }
+  .indicadores .sub { font-size: 0.88rem; color: var(--cinza); }
+  .indicadores .fonte { margin: -12px 0 0; padding-bottom: 14px; font-size: 0.85rem; color: var(--cinza); }
   .faixa-avisos { background: var(--verde-claro); border-bottom: 1px solid #CDE7E1; }
   .faixa-avisos ul { list-style: none; margin: 0; padding: 12px 0; display: flex; flex-direction: column; gap: 6px; }
   .faixa-avisos li { font-size: 0.98rem; }
@@ -186,6 +194,9 @@
     .pagina { grid-template-columns: 1fr; gap: 24px; }
     .lateral { position: static; }
     .duas-colunas { grid-template-columns: 1fr; gap: 24px; }
+    .indicadores ul { grid-template-columns: repeat(2, 1fr); transform: none; padding-top: 16px; }
+    .indicadores li:last-child { grid-column: 1 / -1; }
+    .indicadores .fonte { margin-top: 12px; }
     footer .container { grid-template-columns: 1fr; gap: 20px; }
     .hero h1 { font-size: 1.9rem; }
     .hero::before { background: rgba(10,51,88,0.85); }
@@ -234,6 +245,9 @@
   // Web App da Agenda NEPS; com ?formato=json devolve os próximos eventos.
   // Pode ser trocada pela chave agenda_api na aba CONFIG da planilha.
   var URL_AGENDA_PADRAO = 'https://script.google.com/macros/s/AKfycbxHz8kDViCyiOlQT0iSkG6lkoPvVNmSajDYyD7UkXxQ6qUzRZdPHEL4VfOLw0TUG9M3/exec';
+  // Web App do Painel de Indicadores; com ?formato=json devolve os números do ano.
+  // Pode ser trocada pela chave painel_api na aba CONFIG da planilha.
+  var URL_PAINEL_PADRAO = 'https://script.google.com/macros/s/AKfycbxXYx-JxFqjgdCxUUWncamjS0XkC3JozWK1T7vc_qZcDKofouso9U0oBOYcjezcsu7dHA/exec';
   var $main = document.getElementById('conteudo');
 
   /* ---------- utilitários ---------- */
@@ -581,7 +595,8 @@
       C.menu.filter(function (m) { return m.tipo === 'link' && /agenda/i.test(m.rotulo); })[0];
     var agendaExterna = agendaItem && agendaItem.tipo === 'link';
 
-    var html = '<div class="hero"><div class="container"><h1>' + esc(cfg.nome || 'Escola de Saúde Pública') + '</h1>' + (cfg.descricao ? '<p>' + esc(cfg.descricao) + '</p>' : '') + '</div></div>';
+    var html = '<div class="hero"><div class="container"><h1>' + esc(cfg.nome || 'Escola de Saúde Pública') + '</h1>' + (cfg.descricao ? '<p>' + esc(cfg.descricao) + '</p>' : '') + '</div></div>' +
+      '<div class="indicadores" id="faixa-indicadores" hidden></div>';
     if (avisos.length) {
       html += '<div class="faixa-avisos"><div class="container"><ul>' + avisos.map(function (a) {
         var t = '<strong>' + esc(a.titulo) + '</strong>' + (a.texto ? ' ' + esc(a.texto) : '');
@@ -643,6 +658,34 @@
       .catch(function () { alvo.innerHTML = fallback; });
   }
 
+  /* ---------- indicadores do Painel ---------- */
+  function carregarIndicadores() {
+    var faixa = document.getElementById('faixa-indicadores');
+    if (!faixa) return;
+    var api = ehUrl(C.config.painel_api) ? C.config.painel_api : URL_PAINEL_PADRAO;
+    var fmtN = function (n) { return Number(n || 0).toLocaleString('pt-BR'); };
+
+    fetch(api + '?formato=json')
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (json) {
+        var i = json && json.indicadores;
+        if (!i || json.erro) return;
+        var ano = json.ano || new Date().getFullYear();
+        var cartoes = [
+          { rotulo: 'Eventos realizados', valor: fmtN(i.eventosRealizados), sub: 'em ' + ano },
+          { rotulo: 'Participações em eventos', valor: fmtN(i.participacoes), sub: fmtN(i.pessoas) + ' pessoas da rede' },
+          { rotulo: 'Estudantes de graduação', valor: fmtN(i.estudantesGraduacao), sub: json.semestre ? 'semestre ' + json.semestre : 'na rede municipal' },
+          { rotulo: 'Residentes', valor: fmtN(i.residentes), sub: i.preceptores ? fmtN(i.preceptores) + ' preceptores' : 'em formação' },
+          { rotulo: 'Unidades com iniciativas', valor: fmtN(i.ulsComIniciativa) + '<span class="de"> de ' + fmtN(i.ulsTotal) + '</span>', sub: 'unidades de saúde' }
+        ];
+        faixa.innerHTML = '<div class="container"><ul>' + cartoes.map(function (c) {
+          return '<li><span class="rotulo">' + esc(c.rotulo) + '</span><strong>' + c.valor + '</strong><span class="sub">' + esc(c.sub) + '</span></li>';
+        }).join('') + '</ul><p class="fonte">Indicadores de ' + esc(String(ano)) + ' · <a href="' + esc(api) + '" target="_blank" rel="noopener">ver o Painel de Indicadores completo</a></p></div>';
+        faixa.hidden = false;
+      })
+      .catch(function () { /* sem painel, sem faixa */ });
+  }
+
   /* ---------- rodapé ---------- */
   function rodape() {
     var cfg = C.config;
@@ -666,6 +709,7 @@
       $main.innerHTML = paginaInicial();
       document.title = cfg.nome || titulo;
       carregarPreviaAgenda();
+      carregarIndicadores();
       return;
     }
     var secao = item(partes[0]);
