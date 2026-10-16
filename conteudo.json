@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-16T12:34:30.729Z",
+ "gerado_em": "2026-10-16T13:30:53.657Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -676,7 +676,7 @@
   "proposicao-eventos": {
    "titulo": "Proposição de Eventos",
    "subtitulo": "Como propor um evento de educação na SMS",
-   "corpo": "{{servico:Proposição de eventos}}\n\nNunca propôs um eveto? Precisa de maiores informações? Leia o guia de proposição de eventos.",
+   "corpo": "{{servico:Proposição de eventos}}\n\nNunca propôs um evento? Precisa de maiores informações? Leia o guia de proposição de eventos.",
    "arquivos": [
     {
      "nome": "Guia",
