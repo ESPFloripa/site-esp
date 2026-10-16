@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-16T12:22:38.089Z",
+ "gerado_em": "2026-10-16T12:28:50.770Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -873,7 +873,7 @@
   {
    "ano": "2027",
    "grupo": "multi",
-   "programa": "rms-gestao",
+   "programa": "ru-enfermagem-aps",
    "tipo": "Processo Seletivo",
    "titulo": "Edital de abertura do processo seletivo 2027 PROGRAMA DE RESIDÊNCIA UNIPROFISSIONAL EM ENFERMAGEM EM APS",
    "link": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/08_09_2026_14.28.04.c2ad8aeac8aa0fe776337f93610d544e.pdf",
@@ -886,7 +886,7 @@
   {
    "ano": "2027",
    "grupo": "multi",
-   "programa": "ru-enfermagem-aps",
+   "programa": "rms-gestao",
    "tipo": "Processo Seletivo",
    "titulo": "Edital de abertura do processo seletivo 2027 PROGRAMA DE RESIDÊNCIA MULTIPROFISSIONAL EM GESTÃO EM SAÚDE",
    "link": "https://www.pmf.sc.gov.br/arquivos/arquivos/pdf/08_09_2026_14.28.04.c2ad8aeac8aa0fe776337f93610d544e.pdf",
