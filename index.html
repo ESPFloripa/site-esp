@@ -784,109 +784,222 @@
     });
 })();
 </script>
-<!-- ===== Assistente Virtual ESP ===== -->
+<!-- ===== Assistente Virtual ESP (ESPerto) ===== -->
 <div id="esp-chat-root"></div>
 <style>
-  #esp-chat-root { --esp-cor: var(--azul, #0F4C81); --esp-cor-escura: var(--azul-escuro, #0A3358); }
+  #esp-chat-root {
+    --esp-cor: var(--azul, #0F4C81);             /* cor principal (botão, topo, robô) */
+    --esp-cor-escura: var(--azul-escuro, #0A3358); /* tom escuro da cor principal */
+    --esp-acento: #f5b301;       /* luz da antena e cruz no peito */
+    --esp-texto: #1f2933;
+    --esp-suave: #5f6b76;
+    --esp-linha: #d5dde3;
+    --esp-fundo: #f5f7f9;
+  }
   #esp-chat-root * { box-sizing: border-box; }
-  .esp-chat-botao { position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 9999;
-    width: 60px; height: 60px; border-radius: 50%; border: none; background: var(--esp-cor); color: #fff; cursor: pointer;
-    box-shadow: 0 4px 14px rgba(0,0,0,.25); display: flex; align-items: center; justify-content: center; }
-  .esp-chat-botao:hover { background: var(--esp-cor-escura); }
-  .esp-chat-painel { position: fixed; right: 20px; bottom: calc(92px + env(safe-area-inset-bottom, 0px)); z-index: 9999;
-    width: 380px; max-width: calc(100vw - 24px); height: 560px; max-height: calc(100vh - 120px);
-    background: #fff; color: #1f2933; border: 1px solid #d5dde3; border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.2); display: none; flex-direction: column; overflow: hidden; font-family: inherit; }
-  .esp-chat-painel.aberto { display: flex; }
-  .esp-chat-topo { background: var(--esp-cor); color: #fff; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center; }
-  .esp-chat-topo strong { font-size: 15px; color: #fff; }
-  .esp-chat-fechar { background: none; border: none; color: #fff; font-size: 24px; line-height: 1; cursor: pointer; }
-  .esp-chat-msgs { flex: 1; overflow-y: auto; padding: 12px; display: flex; flex-direction: column; gap: 8px; background: #f5f7f9; }
-  .esp-msg { max-width: 85%; padding: 9px 12px; border-radius: 12px; font-size: 14px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
-  .esp-msg.usuario { align-self: flex-end; background: var(--esp-cor); color: #fff; border-bottom-right-radius: 4px; }
-  .esp-msg.assistente { align-self: flex-start; background: #fff; border: 1px solid #d5dde3; border-bottom-left-radius: 4px; }
-  .esp-msg a { color: inherit; text-decoration: underline; }
-  .esp-chat-aviso { font-size: 11px; color: #5f6b76; padding: 6px 12px; border-top: 1px solid #e3e8ec; background: #fff; }
-  .esp-chat-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #e3e8ec; background: #fff; }
-  .esp-chat-form textarea { flex: 1; resize: none; border: 1px solid #d5dde3; border-radius: 8px; padding: 8px 10px;
-    font: inherit; font-size: 16px; max-height: 100px; }
-  .esp-chat-form button { background: var(--esp-cor); color: #fff; border: none; border-radius: 8px; padding: 0 14px; cursor: pointer; font-weight: 600; }
-  .esp-chat-form button:disabled { opacity: .5; cursor: default; }
+  #esp-chat-root button { font: inherit; }
+  #esp-chat-root :focus-visible { outline: 3px solid var(--esp-acento); outline-offset: 2px; }
+  #esp-chat-root textarea:focus-visible { outline: 2px solid var(--esp-cor); outline-offset: 0; }
+
+  /* Botão flutuante com a cabeça do robô */
+  #esp-chat-root .esp-chat-botao { position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 9999;
+    width: 64px; height: 64px; padding: 0; border-radius: 50%; border: none; background: var(--esp-cor); cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25); display: flex; align-items: center; justify-content: center;
+    transition: transform .15s ease, background .15s ease; }
+  #esp-chat-root .esp-chat-botao:hover { background: var(--esp-cor-escura); transform: translateY(-2px); }
+  #esp-chat-root .esp-chat-botao svg { width: 46px; height: 46px; }
+
+  /* Painel */
+  #esp-chat-root .esp-chat-painel { position: fixed; right: 20px; bottom: calc(96px + env(safe-area-inset-bottom, 0px)); z-index: 9999;
+    width: 380px; max-width: calc(100vw - 24px); height: 600px; max-height: calc(100vh - 124px);
+    background: #fff; color: var(--esp-texto); border: 1px solid var(--esp-linha); border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0,0,0,.22); display: none; flex-direction: column; overflow: hidden; font-family: inherit; }
+  #esp-chat-root .esp-chat-painel.aberto { display: flex; }
+
+  #esp-chat-root .esp-chat-topo { background: var(--esp-cor); color: #fff; padding: 10px 12px; display: flex; align-items: center; gap: 10px; }
+  #esp-chat-root .esp-avatar { width: 38px; height: 38px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; flex: none; }
+  #esp-chat-root .esp-avatar svg { width: 32px; height: 32px; }
+  #esp-chat-root .esp-chat-titulo { flex: 1; line-height: 1.25; }
+  #esp-chat-root .esp-chat-titulo strong { display: block; font-size: 16px; color: #fff; }
+  #esp-chat-root .esp-chat-titulo span { font-size: 12px; opacity: .88; }
+  #esp-chat-root .esp-chat-fechar { background: none; border: none; color: #fff; font-size: 26px; line-height: 1; cursor: pointer; padding: 0 4px; }
+
+  #esp-chat-root .esp-chat-msgs { flex: 1; overflow-y: auto; padding: 14px 12px; display: flex; flex-direction: column; gap: 10px; background: var(--esp-fundo); }
+
+  /* Boas-vindas com o robô de corpo inteiro */
+  #esp-chat-root .esp-boasvindas { text-align: center; padding: 4px 6px 8px; }
+  #esp-chat-root .esp-boasvindas svg { width: 104px; height: 130px; display: block; margin: 0 auto 8px; }
+  #esp-chat-root .esp-bv-titulo { font-size: 18px; font-weight: 700; color: var(--esp-texto); margin-bottom: 4px; }
+  #esp-chat-root .esp-bv-texto { font-size: 13.5px; line-height: 1.5; color: var(--esp-suave); margin: 0 auto 14px; max-width: 30em; }
+  #esp-chat-root .esp-bv-rotulo { font-size: 12.5px; color: var(--esp-suave); text-align: left; margin-bottom: 6px; }
+  #esp-chat-root .esp-sugestoes { display: flex; flex-direction: column; gap: 6px; }
+  #esp-chat-root .esp-sugestao { background: #fff; border: 1px solid var(--esp-linha); color: var(--esp-cor-escura); border-radius: 10px;
+    padding: 9px 12px; font-size: 13.5px; text-align: left; cursor: pointer; }
+  #esp-chat-root .esp-sugestao:hover { border-color: var(--esp-cor); background: #eef3f8; background: color-mix(in srgb, var(--esp-cor) 8%, #fff); }
+
+  /* Mensagens */
+  #esp-chat-root .esp-linha-msg { display: flex; gap: 8px; align-items: flex-end; }
+  #esp-chat-root .esp-linha-msg.usuario { justify-content: flex-end; }
+  #esp-chat-root .esp-mini { width: 30px; height: 30px; flex: none; }
+  #esp-chat-root .esp-mini svg { width: 30px; height: 30px; }
+  #esp-chat-root .esp-msg { max-width: 82%; padding: 9px 12px; border-radius: 14px; font-size: 14px; line-height: 1.45; white-space: pre-wrap; overflow-wrap: anywhere; }
+  #esp-chat-root .esp-msg.usuario { background: var(--esp-cor); color: #fff; border-bottom-right-radius: 4px; }
+  #esp-chat-root .esp-msg.assistente { background: #fff; color: var(--esp-texto); border: 1px solid var(--esp-linha); border-bottom-left-radius: 4px; }
+  #esp-chat-root .esp-msg a { color: inherit; text-decoration: underline; }
+
+  /* Rodapé */
+  #esp-chat-root .esp-chat-aviso { font-size: 11px; color: var(--esp-suave); padding: 6px 12px; border-top: 1px solid #e3e8ec; background: #fff; }
+  #esp-chat-root .esp-chat-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #e3e8ec; background: #fff; margin: 0; }
+  #esp-chat-root .esp-chat-form textarea { flex: 1; resize: none; border: 1px solid var(--esp-linha); border-radius: 10px; padding: 8px 10px;
+    font: inherit; font-size: 16px; max-height: 100px; color: var(--esp-texto); background: #fff; }
+  #esp-chat-root .esp-chat-form button { background: var(--esp-cor); color: #fff; border: none; border-radius: 10px; padding: 0 14px; cursor: pointer; font-weight: 600; }
+  #esp-chat-root .esp-chat-form button:disabled { opacity: .5; cursor: default; }
+
+  /* Animações: aceno ao abrir, antena piscando enquanto pensa */
+  #esp-chat-root .esp-braco { transform-box: view-box; transform-origin: 84px 100px; }
+  #esp-chat-root .esp-acenando .esp-braco { animation: esp-aceno .45s ease-in-out 4 alternate; }
+  #esp-chat-root .esp-olho { transform-box: fill-box; transform-origin: center; }
+  #esp-chat-root .esp-acenando .esp-olho { animation: esp-piscar .28s ease 1.9s 1; }
+  #esp-chat-root .esp-pensando .esp-antena { animation: esp-brilho .7s ease-in-out infinite alternate; }
+  #esp-chat-root .esp-pontos span { display: inline-block; width: 7px; height: 7px; margin: 0 2px; border-radius: 50%; background: var(--esp-suave); animation: esp-pulo 1s infinite; }
+  #esp-chat-root .esp-pontos span:nth-child(2) { animation-delay: .15s; }
+  #esp-chat-root .esp-pontos span:nth-child(3) { animation-delay: .3s; }
+  @keyframes esp-aceno { from { transform: rotate(-10deg); } to { transform: rotate(14deg); } }
+  @keyframes esp-piscar { 50% { transform: scaleY(.1); } }
+  @keyframes esp-brilho { from { opacity: .3; } to { opacity: 1; } }
+  @keyframes esp-pulo { 0%, 80%, 100% { transform: translateY(0); opacity: .4; } 40% { transform: translateY(-4px); opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) {
+    #esp-chat-root *, #esp-chat-root *::before, #esp-chat-root *::after { animation: none !important; transition: none !important; }
+  }
+
   @media (max-width: 480px) {
-    .esp-chat-painel { left: 12px; right: 12px; width: auto; max-width: none; height: calc(100vh - 110px); bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+    #esp-chat-root .esp-chat-painel { left: 12px; right: 12px; width: auto; max-width: none; height: calc(100vh - 112px);
+      bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
   }
   @media print { #esp-chat-root { display: none; } }
 </style>
 <script>
 (function () {
   const URL_ASSISTENTE = 'https://script.google.com/macros/s/AKfycbzn7o2mC_moo3Pw4bT0OAgm_9gB04XxZf5VbHP9zHO198MkgN9tfa-G2EGf7WW5ual4/exec';
-  const SAUDACAO = 'Olá! Sou o ESPerto, o assistente virtual da ESP Floripa. Respondo dúvidas sobre cursos, eventos, ' +
-    'certificados, liberações e demais serviços da Escola, com base nos documentos oficiais. Como posso ajudar?';
+  const SUGESTOES = [
+    'Como reservo uma sala da ESP?',
+    'Como peço liberação para um evento externo?',
+    'Como solicito a licença capacitação?'
+  ];
+
+  // Cabeça do ESPerto (botão, topo e avatar das mensagens)
+  function cabeca(c) {
+    return '<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">' +
+      '<line x1="32" y1="5" x2="32" y2="13" stroke="' + c.contorno + '" stroke-width="3" stroke-linecap="round"/>' +
+      '<circle class="esp-antena" cx="32" cy="5" r="4" fill="var(--esp-acento)"/>' +
+      '<rect x="5" y="27" width="7" height="14" rx="3.5" fill="' + c.orelha + '"/>' +
+      '<rect x="52" y="27" width="7" height="14" rx="3.5" fill="' + c.orelha + '"/>' +
+      '<rect x="10" y="13" width="44" height="40" rx="14" fill="' + c.cabeca + '" stroke="' + c.contorno + '" stroke-width="3"/>' +
+      '<rect x="16" y="21" width="32" height="18" rx="9" fill="' + c.visor + '"/>' +
+      '<circle class="esp-olho" cx="26" cy="30" r="3.5" fill="#fff"/>' +
+      '<circle class="esp-olho" cx="38" cy="30" r="3.5" fill="#fff"/>' +
+      '<path d="M26 45 Q32 49 38 45" fill="none" stroke="' + c.visor + '" stroke-width="2.5" stroke-linecap="round"/>' +
+      '</svg>';
+  }
+  const CABECA_BOTAO = cabeca({ cabeca: '#fff', contorno: '#fff', visor: 'var(--esp-cor-escura)', orelha: '#fff' });
+  const CABECA_AVATAR = cabeca({ cabeca: '#fff', contorno: 'var(--esp-cor)', visor: 'var(--esp-cor)', orelha: 'var(--esp-cor)' });
+
+  // ESPerto de corpo inteiro, acenando (boas-vindas)
+  const ROBO_INTEIRO =
+    '<svg viewBox="0 0 120 150" role="img" aria-label="ESPerto, o robô assistente da ESP">' +
+      '<line x1="60" y1="10" x2="60" y2="24" stroke="var(--esp-cor)" stroke-width="4" stroke-linecap="round"/>' +
+      '<circle class="esp-antena" cx="60" cy="10" r="6" fill="var(--esp-acento)"/>' +
+      '<rect x="16" y="42" width="11" height="24" rx="5.5" fill="var(--esp-cor)"/>' +
+      '<rect x="93" y="42" width="11" height="24" rx="5.5" fill="var(--esp-cor)"/>' +
+      '<rect x="24" y="24" width="72" height="58" rx="22" fill="#fff" stroke="var(--esp-cor)" stroke-width="4"/>' +
+      '<rect x="34" y="37" width="52" height="28" rx="14" fill="var(--esp-cor)"/>' +
+      '<circle class="esp-olho" cx="50" cy="51" r="5" fill="#fff"/>' +
+      '<circle class="esp-olho" cx="70" cy="51" r="5" fill="#fff"/>' +
+      '<path d="M51 72 Q60 78 69 72" fill="none" stroke="var(--esp-cor)" stroke-width="3" stroke-linecap="round"/>' +
+      '<rect x="53" y="82" width="14" height="9" fill="var(--esp-cor)"/>' +
+      '<path d="M36 100 Q22 110 24 125" fill="none" stroke="var(--esp-cor)" stroke-width="6" stroke-linecap="round"/>' +
+      '<circle cx="24" cy="130" r="6" fill="#fff" stroke="var(--esp-cor)" stroke-width="3"/>' +
+      '<g class="esp-braco">' +
+        '<path d="M84 100 Q102 94 106 81" fill="none" stroke="var(--esp-cor)" stroke-width="6" stroke-linecap="round"/>' +
+        '<circle cx="106" cy="75" r="6" fill="#fff" stroke="var(--esp-cor)" stroke-width="3"/>' +
+      '</g>' +
+      '<rect x="34" y="90" width="52" height="46" rx="14" fill="#fff" stroke="var(--esp-cor)" stroke-width="4"/>' +
+      '<rect x="56" y="102" width="8" height="22" rx="2" fill="var(--esp-acento)"/>' +
+      '<rect x="49" y="109" width="22" height="8" rx="2" fill="var(--esp-acento)"/>' +
+    '</svg>';
 
   const raiz = document.getElementById('esp-chat-root');
   raiz.innerHTML =
-    '<button class="esp-chat-botao" type="button" aria-label="Abrir o ESPerto, assistente virtual da ESP" aria-expanded="false">' +
-      '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
-      'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
-    '</button>' +
+    '<button class="esp-chat-botao" type="button" aria-label="Abrir o ESPerto, assistente virtual da ESP" aria-expanded="false" title="Dúvidas? Fale com o ESPerto">' + CABECA_BOTAO + '</button>' +
     '<section class="esp-chat-painel" role="dialog" aria-label="ESPerto, assistente virtual da ESP">' +
-      '<div class="esp-chat-topo"><strong>ESPerto <span style="font-weight:400;opacity:.85">· assistente da ESP</span></strong>' +
-        '<button class="esp-chat-fechar" type="button" aria-label="Fechar">&times;</button></div>' +
-      '<div class="esp-chat-msgs" aria-live="polite"></div>' +
-      '<div class="esp-chat-aviso">Respostas geradas por IA a partir dos documentos oficiais da ESP. ' +
-        'Podem conter erros. Não informe dados pessoais.</div>' +
-      '<form class="esp-chat-form"><textarea rows="1" maxlength="1000" placeholder="Digite sua dúvida..." ' +
-        'aria-label="Sua pergunta"></textarea><button type="submit">Enviar</button></form>' +
+      '<div class="esp-chat-topo">' +
+        '<div class="esp-avatar">' + CABECA_AVATAR + '</div>' +
+        '<div class="esp-chat-titulo"><strong>ESPerto</strong><span>Assistente virtual da ESP Floripa</span></div>' +
+        '<button class="esp-chat-fechar" type="button" aria-label="Fechar">&times;</button>' +
+      '</div>' +
+      '<div class="esp-chat-msgs" aria-live="polite">' +
+        '<div class="esp-boasvindas">' + ROBO_INTEIRO +
+          '<div class="esp-bv-titulo">Olá! Eu sou o ESPerto.</div>' +
+          '<div class="esp-bv-texto">Respondo dúvidas sobre cursos, eventos, reservas e serviços da Escola de Saúde Pública, sempre com base nos documentos oficiais.</div>' +
+          '<div class="esp-sugestoes-bloco"><div class="esp-bv-rotulo">Você pode começar por aqui:</div>' +
+          '<div class="esp-sugestoes">' + SUGESTOES.map(s => '<button type="button" class="esp-sugestao">' + s + '</button>').join('') + '</div></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="esp-chat-aviso">Respostas geradas por IA a partir dos documentos oficiais da ESP. Podem conter erros. Não informe dados pessoais.</div>' +
+      '<form class="esp-chat-form"><textarea rows="1" maxlength="1000" placeholder="Digite sua dúvida..." aria-label="Sua pergunta"></textarea>' +
+        '<button type="submit">Enviar</button></form>' +
     '</section>';
 
   const botao = raiz.querySelector('.esp-chat-botao');
   const painel = raiz.querySelector('.esp-chat-painel');
   const msgs = raiz.querySelector('.esp-chat-msgs');
+  const boasVindas = raiz.querySelector('.esp-boasvindas');
   const form = raiz.querySelector('.esp-chat-form');
   const campo = form.querySelector('textarea');
   const enviar = form.querySelector('button');
   const historico = [];
-  let iniciado = false;
 
   function escapar(t) {
     return t.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   }
   function formatar(t) {
+    // Nome do documento na linha "Fonte:" com espaços no lugar de sublinhados, para quebrar bem a linha
+    t = t.replace(/^(Fonte:.*)$/gm, l => l.replace(/_/g, ' '));
     return escapar(t)
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
       .replace(/(https?:\/\/[^\s<)]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
   }
   function adicionar(texto, autor) {
-    const div = document.createElement('div');
-    div.className = 'esp-msg ' + autor;
-    div.innerHTML = formatar(texto);
-    msgs.appendChild(div);
+    const linha = document.createElement('div');
+    linha.className = 'esp-linha-msg ' + autor;
+    if (autor === 'assistente') linha.innerHTML = '<div class="esp-mini">' + CABECA_AVATAR + '</div>';
+    const bolha = document.createElement('div');
+    bolha.className = 'esp-msg ' + autor;
+    bolha.innerHTML = formatar(texto);
+    linha.appendChild(bolha);
+    msgs.appendChild(linha);
     msgs.scrollTop = msgs.scrollHeight;
-    return div;
+    return { linha: linha, bolha: bolha };
+  }
+  function acenar() {
+    boasVindas.classList.remove('esp-acenando');
+    void boasVindas.offsetWidth; // reinicia a animação
+    boasVindas.classList.add('esp-acenando');
   }
   function alternar(abrir) {
     painel.classList.toggle('aberto', abrir);
     botao.setAttribute('aria-expanded', String(abrir));
-    if (abrir) {
-      if (!iniciado) { adicionar(SAUDACAO, 'assistente'); iniciado = true; }
-      campo.focus();
-    }
+    if (abrir) { acenar(); campo.focus(); }
   }
 
-  botao.addEventListener('click', () => alternar(!painel.classList.contains('aberto')));
-  raiz.querySelector('.esp-chat-fechar').addEventListener('click', () => alternar(false));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') alternar(false); });
-  campo.addEventListener('keydown', e => {
-    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
-  });
-
-  form.addEventListener('submit', async e => {
-    e.preventDefault();
-    const pergunta = campo.value.trim();
+  async function perguntar(pergunta) {
     if (!pergunta || enviar.disabled) return;
-    campo.value = '';
+    const bloco = raiz.querySelector('.esp-sugestoes-bloco');
+    if (bloco) bloco.remove();
     adicionar(pergunta, 'usuario');
-    const aguarde = adicionar('Consultando os documentos…', 'assistente');
+    const espera = adicionar('', 'assistente');
+    espera.linha.classList.add('esp-pensando');
+    espera.bolha.innerHTML = '<span class="esp-pontos" role="status" aria-label="O ESPerto está consultando os documentos"><span></span><span></span><span></span></span>';
     enviar.disabled = true;
     try {
       // Sem cabeçalho Content-Type: o navegador envia text/plain e o Apps Script aceita sem bloqueio de CORS.
@@ -896,18 +1009,33 @@
       });
       const dados = await r.json();
       const resposta = dados.resposta || 'Não foi possível obter uma resposta.';
-      aguarde.innerHTML = formatar(resposta);
+      espera.bolha.innerHTML = formatar(resposta);
       historico.push({ autor: 'usuario', texto: pergunta }, { autor: 'assistente', texto: resposta });
     } catch (err) {
-      aguarde.innerHTML = formatar('Não foi possível conectar ao assistente agora. Tente novamente em instantes.');
+      espera.bolha.innerHTML = formatar('Não foi possível conectar ao ESPerto agora. Tente novamente em instantes.');
     } finally {
+      espera.linha.classList.remove('esp-pensando');
       enviar.disabled = false;
       msgs.scrollTop = msgs.scrollHeight;
       campo.focus();
     }
+  }
+
+  botao.addEventListener('click', () => alternar(!painel.classList.contains('aberto')));
+  raiz.querySelector('.esp-chat-fechar').addEventListener('click', () => { alternar(false); botao.focus(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && painel.classList.contains('aberto')) { alternar(false); botao.focus(); } });
+  raiz.querySelectorAll('.esp-sugestao').forEach(b => b.addEventListener('click', () => perguntar(b.textContent)));
+  campo.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); form.requestSubmit(); }
+  });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const pergunta = campo.value.trim();
+    campo.value = '';
+    perguntar(pergunta);
   });
 })();
 </script>
-<!-- ===== Fim do Assistente Virtual ESP ===== -->
+<!-- ===== Fim do Assistente Virtual ESP (ESPerto) ===== -->
 </body>
 </html>
