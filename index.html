@@ -820,17 +820,17 @@
 <script>
 (function () {
   const URL_ASSISTENTE = 'https://script.google.com/macros/s/AKfycbzn7o2mC_moo3Pw4bT0OAgm_9gB04XxZf5VbHP9zHO198MkgN9tfa-G2EGf7WW5ual4/exec';
-  const SAUDACAO = 'Olá! Sou o assistente virtual da ESP Floripa. Respondo dúvidas sobre cursos, eventos, ' +
+  const SAUDACAO = 'Olá! Sou o ESPerto, o assistente virtual da ESP Floripa. Respondo dúvidas sobre cursos, eventos, ' +
     'certificados, liberações e demais serviços da Escola, com base nos documentos oficiais. Como posso ajudar?';
 
   const raiz = document.getElementById('esp-chat-root');
   raiz.innerHTML =
-    '<button class="esp-chat-botao" type="button" aria-label="Abrir o assistente virtual da ESP" aria-expanded="false">' +
+    '<button class="esp-chat-botao" type="button" aria-label="Abrir o ESPerto, assistente virtual da ESP" aria-expanded="false">' +
       '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
       'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>' +
     '</button>' +
-    '<section class="esp-chat-painel" role="dialog" aria-label="Assistente virtual da ESP">' +
-      '<div class="esp-chat-topo"><strong>Assistente Virtual ESP</strong>' +
+    '<section class="esp-chat-painel" role="dialog" aria-label="ESPerto, assistente virtual da ESP">' +
+      '<div class="esp-chat-topo"><strong>ESPerto <span style="font-weight:400;opacity:.85">· assistente da ESP</span></strong>' +
         '<button class="esp-chat-fechar" type="button" aria-label="Fechar">&times;</button></div>' +
       '<div class="esp-chat-msgs" aria-live="polite"></div>' +
       '<div class="esp-chat-aviso">Respostas geradas por IA a partir dos documentos oficiais da ESP. ' +
