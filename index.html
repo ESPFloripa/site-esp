@@ -784,7 +784,7 @@
     });
 })();
 </script>
-<!-- ===== Assistente Virtual ESP (ESPerto) ===== -->
+<!-- ===== Assistente Virtual ESP (ESPertinho) ===== -->
 <div id="esp-chat-root"></div>
 <style>
   #esp-chat-root {
@@ -835,7 +835,7 @@
   #esp-chat-root .esp-sugestoes { display: flex; flex-direction: column; gap: 6px; }
   #esp-chat-root .esp-sugestao { background: #fff; border: 1px solid var(--esp-linha); color: var(--esp-cor-escura); border-radius: 10px;
     padding: 9px 12px; font-size: 13.5px; text-align: left; cursor: pointer; }
-  #esp-chat-root .esp-sugestao:hover { border-color: var(--esp-cor); background: #eef3f8; background: color-mix(in srgb, var(--esp-cor) 8%, #fff); }
+  #esp-chat-root .esp-sugestao:hover { border-color: var(--esp-cor); background: #eef6f2; background: color-mix(in srgb, var(--esp-cor) 8%, #fff); }
 
   /* Mensagens */
   #esp-chat-root .esp-linha-msg { display: flex; gap: 8px; align-items: flex-end; }
@@ -887,7 +887,7 @@
     'Como solicito a licença capacitação?'
   ];
 
-  // Cabeça do ESPerto (botão, topo e avatar das mensagens)
+  // Cabeça do ESPertinho (botão, topo e avatar das mensagens)
   function cabeca(c) {
     return '<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">' +
       '<line x1="32" y1="5" x2="32" y2="13" stroke="' + c.contorno + '" stroke-width="3" stroke-linecap="round"/>' +
@@ -904,9 +904,9 @@
   const CABECA_BOTAO = cabeca({ cabeca: '#fff', contorno: '#fff', visor: 'var(--esp-cor-escura)', orelha: '#fff' });
   const CABECA_AVATAR = cabeca({ cabeca: '#fff', contorno: 'var(--esp-cor)', visor: 'var(--esp-cor)', orelha: 'var(--esp-cor)' });
 
-  // ESPerto de corpo inteiro, acenando (boas-vindas)
+  // ESPertinho de corpo inteiro, acenando (boas-vindas)
   const ROBO_INTEIRO =
-    '<svg viewBox="0 0 120 150" role="img" aria-label="ESPerto, o robô assistente da ESP">' +
+    '<svg viewBox="0 0 120 150" role="img" aria-label="ESPertinho, o robô assistente da ESP">' +
       '<line x1="60" y1="10" x2="60" y2="24" stroke="var(--esp-cor)" stroke-width="4" stroke-linecap="round"/>' +
       '<circle class="esp-antena" cx="60" cy="10" r="6" fill="var(--esp-acento)"/>' +
       '<rect x="16" y="42" width="11" height="24" rx="5.5" fill="var(--esp-cor)"/>' +
@@ -930,16 +930,16 @@
 
   const raiz = document.getElementById('esp-chat-root');
   raiz.innerHTML =
-    '<button class="esp-chat-botao" type="button" aria-label="Abrir o ESPerto, assistente virtual da ESP" aria-expanded="false" title="Dúvidas? Fale com o ESPerto">' + CABECA_BOTAO + '</button>' +
-    '<section class="esp-chat-painel" role="dialog" aria-label="ESPerto, assistente virtual da ESP">' +
+    '<button class="esp-chat-botao" type="button" aria-label="Abrir o ESPertinho, assistente virtual da ESP" aria-expanded="false" title="Dúvidas? Fale com o ESPertinho">' + CABECA_BOTAO + '</button>' +
+    '<section class="esp-chat-painel" role="dialog" aria-label="ESPertinho, assistente virtual da ESP">' +
       '<div class="esp-chat-topo">' +
         '<div class="esp-avatar">' + CABECA_AVATAR + '</div>' +
-        '<div class="esp-chat-titulo"><strong>ESPerto</strong><span>Assistente virtual da ESP Floripa</span></div>' +
+        '<div class="esp-chat-titulo"><strong>ESPertinho</strong><span>Assistente virtual da ESP Floripa</span></div>' +
         '<button class="esp-chat-fechar" type="button" aria-label="Fechar">&times;</button>' +
       '</div>' +
       '<div class="esp-chat-msgs" aria-live="polite">' +
         '<div class="esp-boasvindas">' + ROBO_INTEIRO +
-          '<div class="esp-bv-titulo">Olá! Eu sou o ESPerto.</div>' +
+          '<div class="esp-bv-titulo">Olá! Eu sou o ESPertinho.</div>' +
           '<div class="esp-bv-texto">Respondo dúvidas sobre cursos, eventos, reservas e serviços da Escola de Saúde Pública, sempre com base nos documentos oficiais.</div>' +
           '<div class="esp-sugestoes-bloco"><div class="esp-bv-rotulo">Você pode começar por aqui:</div>' +
           '<div class="esp-sugestoes">' + SUGESTOES.map(s => '<button type="button" class="esp-sugestao">' + s + '</button>').join('') + '</div></div>' +
@@ -999,7 +999,7 @@
     adicionar(pergunta, 'usuario');
     const espera = adicionar('', 'assistente');
     espera.linha.classList.add('esp-pensando');
-    espera.bolha.innerHTML = '<span class="esp-pontos" role="status" aria-label="O ESPerto está consultando os documentos"><span></span><span></span><span></span></span>';
+    espera.bolha.innerHTML = '<span class="esp-pontos" role="status" aria-label="O ESPertinho está consultando os documentos"><span></span><span></span><span></span></span>';
     enviar.disabled = true;
     try {
       // Sem cabeçalho Content-Type: o navegador envia text/plain e o Apps Script aceita sem bloqueio de CORS.
@@ -1012,7 +1012,7 @@
       espera.bolha.innerHTML = formatar(resposta);
       historico.push({ autor: 'usuario', texto: pergunta }, { autor: 'assistente', texto: resposta });
     } catch (err) {
-      espera.bolha.innerHTML = formatar('Não foi possível conectar ao ESPerto agora. Tente novamente em instantes.');
+      espera.bolha.innerHTML = formatar('Não foi possível conectar ao ESPertinho agora. Tente novamente em instantes.');
     } finally {
       espera.linha.classList.remove('esp-pensando');
       enviar.disabled = false;
@@ -1036,6 +1036,6 @@
   });
 })();
 </script>
-<!-- ===== Fim do Assistente Virtual ESP (ESPerto) ===== -->
+<!-- ===== Fim do Assistente Virtual ESP (ESPertinho) ===== -->
 </body>
 </html>
