@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-22T12:22:47.072Z",
+ "gerado_em": "2026-10-22T12:25:24.166Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -999,7 +999,7 @@
   },
   {
    "ordem": 2,
-   "nome": "Lucilene",
+   "nome": "Lucilene Gama Paes Reichert",
    "funcao": "Chefe de Departamento",
    "email": "",
    "foto": ""
@@ -1077,6 +1077,13 @@
   {
    "ordem": 13,
    "nome": "Lucas Ariel Favero da Silva",
+   "funcao": "Estagiário",
+   "email": "",
+   "foto": ""
+  },
+  {
+   "ordem": 14,
+   "nome": "Auana Vitória Fernandes dos Santos de Matos",
    "funcao": "Estagiário",
    "email": "",
    "foto": ""
