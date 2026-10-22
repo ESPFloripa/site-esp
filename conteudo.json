@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-22T12:52:40.884Z",
+ "gerado_em": "2026-10-22T12:56:51.877Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -780,13 +780,13 @@
    "corpo": "(Conteúdo a preencher.)",
    "arquivos": []
   },
-  "Saber Saúde Floripa": {
+  "saber-saude": {
    "titulo": "Saber Saúde Floripa",
    "subtitulo": "Repositório de Aulas e Cursos de curta duração no formato EAD",
    "corpo": "Acesse o portal através do link: https://espfloripa.github.io/SaberSaude/",
    "arquivos": []
   },
-  "Eventos e cursos": {
+  "oportunidades": {
    "titulo": "Eventos e cursos",
    "subtitulo": "Agenda do Núcleo de Educação Permanente em Saúde",
    "corpo": "Os cursos e eventos internos da Secretaria Municipal de Saúde assim como os eventos externos indicados com recomendação podem ser consultados na Agenda do Núcleo de Educação Permenente em Saúde disponível em:  https://espfloripa.github.io/agenda_NEPS/",
@@ -798,7 +798,7 @@
    "corpo": "(Conteúdo a preencher.)",
    "arquivos": []
   },
-  "comissao-sf": {
+  "comissao-af": {
    "titulo": "Comissão de Ações Afirmativas e Equidade da ESP-Floripa",
    "subtitulo": "",
    "corpo": "(Conteúdo a preencher.)",
