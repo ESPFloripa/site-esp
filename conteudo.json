@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-22T12:14:59.285Z",
+ "gerado_em": "2026-10-22T12:19:50.016Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -590,6 +590,26 @@
    "grupo": "Para todos os residentes",
    "tipo": "pagina",
    "destino": "eventos-externos"
+  },
+  {
+   "ordem": 1,
+   "nivel": 3,
+   "rotulo": "Comissão de Saúde Mental",
+   "id": "comissão SM",
+   "pai": "comissões",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": ""
+  },
+  {
+   "ordem": 2,
+   "nivel": 3,
+   "rotulo": "Comissão de Ações AAfirmativas e Equidade da ESP-Floripa",
+   "id": "comissão AF",
+   "pai": "comissões",
+   "grupo": "",
+   "tipo": "pagina",
+   "destino": ""
   }
  ],
  "paginas": {
@@ -960,7 +980,7 @@
  "equipe": [
   {
    "ordem": 1,
-   "nome": "Alessandra",
+   "nome": "Alessandra de Quadra Esmeraldino",
    "funcao": "Diretora da ESP",
    "email": "",
    "foto": ""
@@ -974,49 +994,49 @@
   },
   {
    "ordem": 3,
-   "nome": "Andrea",
+   "nome": "Andrea Ferreira Cardoso",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
    "ordem": 4,
-   "nome": "Cibelle",
+   "nome": "Cibelle de Oliveira",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
    "ordem": 5,
-   "nome": "Denise",
+   "nome": "Denise Machado Longhi",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
    "ordem": 6,
-   "nome": "Edenice",
+   "nome": "Edenice Reis da Silveira",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
    "ordem": 7,
-   "nome": "Evelise",
+   "nome": "Evelise Ribeiro Gonçalves",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
    "ordem": 8,
-   "nome": "Evelyn",
+   "nome": "Evelyn Cremonese",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
    "ordem": 9,
-   "nome": "Fernanda",
+   "nome": "Fernanda Manzini",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
