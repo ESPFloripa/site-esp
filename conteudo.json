@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-22T12:56:51.877Z",
+ "gerado_em": "2026-10-22T13:00:07.481Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -199,7 +199,7 @@
    "pai": "cursos",
    "grupo": "",
    "tipo": "pagina",
-   "destino": "Saber Saúde Floripa"
+   "destino": "saber-saude"
   },
   {
    "ordem": 2,
@@ -269,7 +269,7 @@
    "pai": "cursos",
    "grupo": "",
    "tipo": "pagina",
-   "destino": "Eventos e cursos"
+   "destino": "oportunidades"
   },
   {
    "ordem": 3,
