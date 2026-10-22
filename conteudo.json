@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-22T12:50:16.606Z",
+ "gerado_em": "2026-10-22T12:52:02.839Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -595,21 +595,21 @@
    "ordem": 1,
    "nivel": 3,
    "rotulo": "Comissão de Saúde Mental",
-   "id": "comissao-SM",
+   "id": "comissao-sm",
    "pai": "comissoes",
    "grupo": "",
    "tipo": "pagina",
-   "destino": "comissão-SM"
+   "destino": "comissao-sm"
   },
   {
    "ordem": 2,
    "nivel": 3,
    "rotulo": "Comissão de Ações Afirmativas e Equidade da ESP-Floripa",
-   "id": "comissao-AF",
-   "pai": "comissões",
+   "id": "comissao-af",
+   "pai": "comissoes",
    "grupo": "",
    "tipo": "pagina",
-   "destino": "comissão-AF"
+   "destino": "comissao-af"
   }
  ],
  "paginas": {
@@ -792,13 +792,13 @@
    "corpo": "Os cursos e eventos internos da Secretaria Municipal de Saúde assim como os eventos externos indicados com recomendação podem ser consultados na Agenda do Núcleo de Educação Permenente em Saúde disponível em:  https://espfloripa.github.io/agenda_NEPS/",
    "arquivos": []
   },
-  "comissão-SM": {
+  "comissao-sm": {
    "titulo": "Comissão de Saúde Mental",
    "subtitulo": "",
    "corpo": "(Conteúdo a preencher.)",
    "arquivos": []
   },
-  "comissão-AF": {
+  "comissao-sf": {
    "titulo": "Comissão de Ações Afirmativas e Equidade da ESP-Floripa",
    "subtitulo": "",
    "corpo": "(Conteúdo a preencher.)",
