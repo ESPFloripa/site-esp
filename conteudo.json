@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-22T12:19:50.016Z",
+ "gerado_em": "2026-10-22T12:22:47.072Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -599,17 +599,17 @@
    "pai": "comissões",
    "grupo": "",
    "tipo": "pagina",
-   "destino": ""
+   "destino": "comissão SM"
   },
   {
    "ordem": 2,
    "nivel": 3,
-   "rotulo": "Comissão de Ações AAfirmativas e Equidade da ESP-Floripa",
+   "rotulo": "Comissão de Ações Afirmativas e Equidade da ESP-Floripa",
    "id": "comissão AF",
    "pai": "comissões",
    "grupo": "",
    "tipo": "pagina",
-   "destino": ""
+   "destino": "comissão AF"
   }
  ],
  "paginas": {
@@ -791,6 +791,18 @@
    "subtitulo": "Agenda do Núcleo de Educação Permanente em Saúde",
    "corpo": "Os cursos e eventos internos da Secretaria Municipal de Saúde assim como os eventos externos indicados com recomendação podem ser consultados na Agenda do Núcleo de Educação Permenente em Saúde disponível em:  https://espfloripa.github.io/agenda_NEPS/",
    "arquivos": []
+  },
+  "comissão SM": {
+   "titulo": "Comissão de Saúde Mental",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
+  },
+  "comissão AF": {
+   "titulo": "Comissão de Ações Afirmativas e Equidade da ESP-Floripa",
+   "subtitulo": "",
+   "corpo": "(Conteúdo a preencher.)",
+   "arquivos": []
   }
  },
  "programas": {
@@ -830,7 +842,7 @@
    "carga_horaria": "60 h semanais",
    "coordenacao": "",
    "contato": "",
-   "corpo": "(a preencher)",
+   "corpo": "A Residência Multiprofissional em Saúde da Família tem como objetivo formar profissionais qualificados para atuar no Sistema Único de Saúde (SUS), com ênfase na Atenção Primária à Saúde, na promoção da saúde, na prevenção de doenças e no cuidado integral e interdisciplinar.\r\n\r\nO Programa de Residência Multiprofissional em Saúde da Família (PREMULTISF) é uma pós-graduação lato sensu, desenvolvida por meio de atividades práticas, teóricas e teórico-práticas, integrando o conhecimento acadêmico à realidade dos serviços de saúde.\r\n\r\nCom duração de dois anos (R1 e R2), o programa contempla atividades predominantemente nos Centros de Saúde de Florianópolis, sob supervisão, além de estágios em outros níveis de atenção e serviços de referência. Também prevê estágio optativo, conforme os interesses e objetivos formativos dos residentes.",
    "arquivos": []
   },
   "rms-gestao": {
@@ -1043,29 +1055,29 @@
   },
   {
    "ordem": 10,
-   "nome": "Grazi",
+   "nome": "Nulvio Lermen Junior",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
    "ordem": 11,
-   "nome": "Lucas",
-   "funcao": "Estagiário",
+   "nome": "Thais Titon de Souza",
+   "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
    "ordem": 12,
-   "nome": "Nulvio",
+   "nome": "Graziane Fernandes",
    "funcao": "Assessor",
    "email": "",
    "foto": ""
   },
   {
    "ordem": 13,
-   "nome": "Thais",
-   "funcao": "Assessor",
+   "nome": "Lucas Ariel Favero da Silva",
+   "funcao": "Estagiário",
    "email": "",
    "foto": ""
   }
