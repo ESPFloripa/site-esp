@@ -722,7 +722,9 @@
 
   /* ---------- roteador ---------- */
   function rota() {
-    var partes = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+    var partes = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean).map(function (p) {
+      try { return decodeURIComponent(p); } catch (e) { return p; }
+    });
     var cfg = C.config;
     var titulo = cfg.sigla || cfg.nome || '';
     window.scrollTo(0, 0);
