@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-22T12:39:16.764Z",
+ "gerado_em": "2026-10-22T12:50:16.606Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -525,7 +525,7 @@
    "ordem": 10,
    "nivel": 2,
    "rotulo": "Comissões",
-   "id": "comissões",
+   "id": "comissoes",
    "pai": "escola",
    "grupo": "",
    "tipo": "secao",
@@ -595,8 +595,8 @@
    "ordem": 1,
    "nivel": 3,
    "rotulo": "Comissão de Saúde Mental",
-   "id": "comissão SM",
-   "pai": "comissões",
+   "id": "comissao-SM",
+   "pai": "comissoes",
    "grupo": "",
    "tipo": "pagina",
    "destino": "comissão-SM"
@@ -605,7 +605,7 @@
    "ordem": 2,
    "nivel": 3,
    "rotulo": "Comissão de Ações Afirmativas e Equidade da ESP-Floripa",
-   "id": "comissão AF",
+   "id": "comissao-AF",
    "pai": "comissões",
    "grupo": "",
    "tipo": "pagina",
@@ -842,7 +842,7 @@
    "carga_horaria": "60 h semanais",
    "coordenacao": "",
    "contato": "",
-   "corpo": "A Residência Multiprofissional em Saúde da Família tem como objetivo formar profissionais qualificados para atuar no Sistema Único de Saúde (SUS), com ênfase na Atenção Primária à Saúde, na promoção da saúde, na prevenção de doenças e no cuidado integral e interdisciplinar.\n\nO Programa de Residência Multiprofissional em Saúde da Família (PREMULTISF) é uma pós-graduação lato sensu, desenvolvida por meio de atividades práticas, teóricas e teórico-práticas, integrando o conhecimento acadêmico à realidade dos serviços de saúde.\n\nCom duração de dois anos (R1 e R2), o programa contempla atividades predominantemente nos Centros de Saúde de Florianópolis, sob supervisão, além de estágios em outros níveis de atenção e serviços de referência. Também prevê estágio optativo, conforme os interesses e objetivos formativos dos residentes.",
+   "corpo": "A Residência Multiprofissional em Saúde da Família tem como objetivo formar profissionais qualificados para atuar no Sistema Único de Saúde (SUS), com ênfase na Atenção Primária à Saúde, a partir do desenvolvimento de ações de promoção da saúde, de prevenção de doenças e de cuidado integral e interdisciplinar à população.\n\nO Programa de Residência Multiprofissional em Saúde da Família (PREMULTISF) é uma modalidade de pós-graduação \"lato sensu\", sob forma de um curso de especialização, desenvolvida por meio de atividades práticas, teóricas e teórico-práticas, integrando o conhecimento acadêmico à prática profissional e à realidade dos serviços de saúde.\n\nCom duração de dois anos (R1 e R2), o programa contempla atividades realizadas predominantemente nos Centros de Saúde de Florianópolis, com supervisão de preceptores, além de estágios em outros níveis de atenção e serviços de referência. Também prevê estágio optativo, definidos conforme o perfil de competência da Residência, os interesses e objetivos formativos dos residentes.",
    "arquivos": [
     {
      "nome": "Regimento Interno (RI) do Programa de Residência Multiprofissional em Saúde",
@@ -887,7 +887,16 @@
    "coordenacao": "",
    "contato": "",
    "corpo": "A Residência Uniprofissional em Enfermagem na Atenção Primária à Saúde (APS) tem como objetivo qualificar enfermeiros e enfermeiras para atuar no Sistema Único de Saúde (SUS), com ênfase no cuidado integral, na prática clínica de enfermagem e na organização dos serviços de saúde.\r\n\r\nConstitui uma modalidade de pós-graduação lato sensu, desenvolvida por meio do ensino em serviço e da integração entre atividades práticas, teóricas e teórico-práticas, articulando o conhecimento científico às necessidades de saúde da população e à realidade dos serviços.\r\n\r\nCom duração de dois anos, o programa orienta-se pelos princípios e diretrizes do SUS, pelos atributos da APS e pelos fundamentos da prática clínica de enfermagem, valorizando o trabalho interprofissional e a colaboração entre as equipes. No primeiro ano (R1), as atividades concentram-se predominantemente nos Centros de Saúde de Florianópolis, sob supervisão, com foco no desenvolvimento de competências clínicas e na compreensão da organização e gestão dos serviços. No segundo ano (R2), além da continuidade das atividades nos Centros de Saúde, são realizados estágios em outros níveis de atenção e em serviços de referência, ampliando a compreensão sobre a Rede de Atenção à Saúde.",
-   "arquivos": []
+   "arquivos": [
+    {
+     "nome": "Regimento Interno (RI) do Programa de Residência Uniprofissional em Enfermagem em APS",
+     "url": "https://drive.google.com/file/d/1LbGF8YyimYOOyRqEgnzEBaB76whEiF3A/view?usp=sharing"
+    },
+    {
+     "nome": "view?usp=sharing",
+     "url": "https://drive.google.com/file/d/1-euPaHkzBkBttBBDGPZzw2Z_YMMv9aNn/view?usp=sharing"
+    }
+   ]
   },
   "elg": {
    "id": "elg",
