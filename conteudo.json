@@ -1,5 +1,5 @@
 {
- "gerado_em": "2026-10-22T12:25:24.166Z",
+ "gerado_em": "2026-10-22T12:39:16.764Z",
  "config": {
   "nome": "Escola de Saúde Pública de Florianópolis",
   "sigla": "ESP Florianópolis",
@@ -599,7 +599,7 @@
    "pai": "comissões",
    "grupo": "",
    "tipo": "pagina",
-   "destino": "comissão SM"
+   "destino": "comissão-SM"
   },
   {
    "ordem": 2,
@@ -609,7 +609,7 @@
    "pai": "comissões",
    "grupo": "",
    "tipo": "pagina",
-   "destino": "comissão AF"
+   "destino": "comissão-AF"
   }
  ],
  "paginas": {
@@ -792,13 +792,13 @@
    "corpo": "Os cursos e eventos internos da Secretaria Municipal de Saúde assim como os eventos externos indicados com recomendação podem ser consultados na Agenda do Núcleo de Educação Permenente em Saúde disponível em:  https://espfloripa.github.io/agenda_NEPS/",
    "arquivos": []
   },
-  "comissão SM": {
+  "comissão-SM": {
    "titulo": "Comissão de Saúde Mental",
    "subtitulo": "",
    "corpo": "(Conteúdo a preencher.)",
    "arquivos": []
   },
-  "comissão AF": {
+  "comissão-AF": {
    "titulo": "Comissão de Ações Afirmativas e Equidade da ESP-Floripa",
    "subtitulo": "",
    "corpo": "(Conteúdo a preencher.)",
@@ -842,8 +842,17 @@
    "carga_horaria": "60 h semanais",
    "coordenacao": "",
    "contato": "",
-   "corpo": "A Residência Multiprofissional em Saúde da Família tem como objetivo formar profissionais qualificados para atuar no Sistema Único de Saúde (SUS), com ênfase na Atenção Primária à Saúde, na promoção da saúde, na prevenção de doenças e no cuidado integral e interdisciplinar.\r\n\r\nO Programa de Residência Multiprofissional em Saúde da Família (PREMULTISF) é uma pós-graduação lato sensu, desenvolvida por meio de atividades práticas, teóricas e teórico-práticas, integrando o conhecimento acadêmico à realidade dos serviços de saúde.\r\n\r\nCom duração de dois anos (R1 e R2), o programa contempla atividades predominantemente nos Centros de Saúde de Florianópolis, sob supervisão, além de estágios em outros níveis de atenção e serviços de referência. Também prevê estágio optativo, conforme os interesses e objetivos formativos dos residentes.",
-   "arquivos": []
+   "corpo": "A Residência Multiprofissional em Saúde da Família tem como objetivo formar profissionais qualificados para atuar no Sistema Único de Saúde (SUS), com ênfase na Atenção Primária à Saúde, na promoção da saúde, na prevenção de doenças e no cuidado integral e interdisciplinar.\n\nO Programa de Residência Multiprofissional em Saúde da Família (PREMULTISF) é uma pós-graduação lato sensu, desenvolvida por meio de atividades práticas, teóricas e teórico-práticas, integrando o conhecimento acadêmico à realidade dos serviços de saúde.\n\nCom duração de dois anos (R1 e R2), o programa contempla atividades predominantemente nos Centros de Saúde de Florianópolis, sob supervisão, além de estágios em outros níveis de atenção e serviços de referência. Também prevê estágio optativo, conforme os interesses e objetivos formativos dos residentes.",
+   "arquivos": [
+    {
+     "nome": "Regimento Interno (RI) do Programa de Residência Multiprofissional em Saúde",
+     "url": "https://drive.google.com/file/d/1j5-oH8K6OQbjyvb-4CASOFTl0ctdV6xG/view?usp=sharing"
+    },
+    {
+     "nome": "Projeto Político Pedagógico (PPP) do Programa de Residência Multiprofissional em Saúde",
+     "url": "https://drive.google.com/file/d/1VE1DAVnrn3PAkh4fvInGkh_HqSOJeaN5/view?usp=sharing"
+    }
+   ]
   },
   "rms-gestao": {
    "id": "rms-gestao",
@@ -871,13 +880,13 @@
    "id": "ru-enfermagem-aps",
    "grupo": "multi",
    "nome": "Residência Uniprofissional em Enfermagem em Atenção Primária à Saúde",
-   "resumo": "",
+   "resumo": "A Atenção Primária à Saúde (APS) de Florianópolis dispõe de um quadro de enfermeiros altamente qualificados. Desde 2013, por meio da Comissão Permanente de Sistematização da Assistência de Enfermagem (CSAE), tem avançado na defesa da prática Clínica da enfermagem, na qualificação do processo de trabalho e nos avanços da profissão, o que torna o campo de prática, um cenário único na realidade do Sistema Único de Saúde (SUS). Buscamos formar profissionais críticos, reflexivos e capacitados para enfrentar os desafios da APS com competência técnica, compromisso ético e a capacidade de colaborar efetivamente em equipes interprofissionais, contribuindo para a melhoria contínua e a sustentabilidade do SUS.",
    "duracao": "2 anos",
    "vagas": "",
    "carga_horaria": "60 h semanais",
    "coordenacao": "",
    "contato": "",
-   "corpo": "(a preencher)",
+   "corpo": "A Residência Uniprofissional em Enfermagem na Atenção Primária à Saúde (APS) tem como objetivo qualificar enfermeiros e enfermeiras para atuar no Sistema Único de Saúde (SUS), com ênfase no cuidado integral, na prática clínica de enfermagem e na organização dos serviços de saúde.\r\n\r\nConstitui uma modalidade de pós-graduação lato sensu, desenvolvida por meio do ensino em serviço e da integração entre atividades práticas, teóricas e teórico-práticas, articulando o conhecimento científico às necessidades de saúde da população e à realidade dos serviços.\r\n\r\nCom duração de dois anos, o programa orienta-se pelos princípios e diretrizes do SUS, pelos atributos da APS e pelos fundamentos da prática clínica de enfermagem, valorizando o trabalho interprofissional e a colaboração entre as equipes. No primeiro ano (R1), as atividades concentram-se predominantemente nos Centros de Saúde de Florianópolis, sob supervisão, com foco no desenvolvimento de competências clínicas e na compreensão da organização e gestão dos serviços. No segundo ano (R2), além da continuidade das atividades nos Centros de Saúde, são realizados estágios em outros níveis de atenção e em serviços de referência, ampliando a compreensão sobre a Rede de Atenção à Saúde.",
    "arquivos": []
   },
   "elg": {
