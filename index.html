@@ -71,6 +71,9 @@
   .lateral li a { display: block; padding: 6px 12px; text-decoration: none; color: var(--texto); font-size: 0.97rem; margin-left: -2px; border-left: 2px solid transparent; }
   .lateral li a:hover { color: var(--azul); }
   .lateral li a.ativo { border-left-color: var(--verde); color: var(--azul-escuro); font-weight: 600; }
+  .lateral li a.pai-ativo { color: var(--azul-escuro); font-weight: 600; }
+  .lateral ul.subitens { margin: 0 0 4px 14px; border-left: 1px dashed var(--linha); }
+  .lateral ul.subitens li a { font-size: 0.92rem; padding: 4px 10px; }
   .lateral details summary { cursor: pointer; font-weight: 600; color: var(--azul-escuro); padding: 10px 0; }
   .conteudo { max-width: 72ch; }
   .conteudo header { margin-bottom: 24px; }
@@ -275,8 +278,11 @@
   function hrefItem(item) {
     if (item.tipo === 'link') return item.destino;
     if (item.tipo === 'inicio') return '#/';
-    return item.nivel === 1 ? '#/' + item.id : '#/' + item.pai + '/' + item.id;
+    if (item.nivel === 1) return '#/' + item.id;
+    if (item.nivel === 3) { var pai = item2(item.pai); return '#/' + (pai ? pai.pai : '') + '/' + item.pai + '/' + item.id; }
+    return '#/' + item.pai + '/' + item.id;
   }
+  function item2(id) { for (var i = 0; i < C.menu.length; i++) if (C.menu[i].id === id) return C.menu[i]; return null; }
 
   /* Markdown mínimo: títulos, negrito, itálico, links, listas, citações, tabelas, parágrafos. HTML é mantido. */
   function normaliza(s) { return String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim(); }
@@ -355,7 +361,7 @@
 
   /* ---------- navegação ---------- */
   function itensNivel1() { return C.menu.filter(function (m) { return m.nivel === 1; }); }
-  function filhos(idPai) { return C.menu.filter(function (m) { return m.nivel === 2 && m.pai === idPai; }); }
+  function filhos(idPai) { return C.menu.filter(function (m) { return m.pai === idPai; }); }
   function item(id) { for (var i = 0; i < C.menu.length; i++) if (C.menu[i].id === id) return C.menu[i]; return null; }
 
   function montarNav(ativoId) {
@@ -378,7 +384,14 @@
     var html = grupos.map(function (g) {
       return (g ? '<h2>' + esc(g) + '</h2>' : '') + '<ul>' + porGrupo[g].map(function (m) {
         var ext = m.tipo === 'link';
-        return '<li><a href="' + esc(hrefItem(m)) + '"' + (ext ? ' target="_blank" rel="noopener"' : (m.id === ativoId ? ' class="ativo" aria-current="page"' : '')) + '>' + esc(m.rotulo) + (ext ? ' ↗' : '') + '</a></li>';
+        var netos = filhos(m.id);
+        var filhoAtivo = netos.some(function (n) { return n.id === ativoId; });
+        var cls = m.id === ativoId ? ' class="ativo" aria-current="page"' : (filhoAtivo ? ' class="pai-ativo"' : '');
+        var sub = netos.length ? '<ul class="subitens">' + netos.map(function (n) {
+          var extN = n.tipo === 'link';
+          return '<li><a href="' + esc(hrefItem(n)) + '"' + (extN ? ' target="_blank" rel="noopener"' : (n.id === ativoId ? ' class="ativo" aria-current="page"' : '')) + '>' + esc(n.rotulo) + (extN ? ' ↗' : '') + '</a></li>';
+        }).join('') + '</ul>' : '';
+        return '<li><a href="' + esc(hrefItem(m)) + '"' + (ext ? ' target="_blank" rel="noopener"' : cls) + '>' + esc(m.rotulo) + (ext ? ' ↗' : '') + '</a>' + sub + '</li>';
       }).join('') + '</ul>';
     }).join('');
     var aberto = window.matchMedia('(min-width: 901px)').matches ? ' open' : '';
@@ -728,27 +741,25 @@
 
     var atual = partes[1] ? item(partes[1]) : null;
     if (partes[1] && (!atual || atual.pai !== secao.id)) { naoEncontrada(); return; }
+    var sub = partes[2] ? item(partes[2]) : null;
+    if (partes[2] && (!sub || !atual || sub.pai !== atual.id)) { naoEncontrada(); return; }
 
-    var bloco, rotuloAtual = '';
-    if (!atual) {
-      if (secao.tipo === 'pagina') bloco = blocoPagina(secao.destino);
-      else if (secao.tipo === 'programa') bloco = blocoPrograma(secao.destino);
-      else if (secao.tipo === 'editais') bloco = blocoEditais(secao);
-      else if (secao.tipo === 'lista') bloco = blocoLista(secao.destino, secao.rotulo);
-      else bloco = blocoSecao(secao);
-    } else {
-      rotuloAtual = atual.rotulo;
-      if (atual.tipo === 'pagina') bloco = blocoPagina(atual.destino);
-      else if (atual.tipo === 'programa') bloco = blocoPrograma(atual.destino);
-      else if (atual.tipo === 'editais') bloco = blocoEditais(atual);
-      else if (atual.tipo === 'lista') bloco = blocoLista(atual.destino, atual.rotulo);
-      else bloco = blocoSecao(atual);
-    }
+    var alvo = sub || atual || secao;
+    var bloco;
+    if (alvo.tipo === 'pagina') bloco = blocoPagina(alvo.destino);
+    else if (alvo.tipo === 'programa') bloco = blocoPrograma(alvo.destino);
+    else if (alvo.tipo === 'editais') bloco = blocoEditais(alvo);
+    else if (alvo.tipo === 'lista') bloco = blocoLista(alvo.destino, alvo.rotulo);
+    else bloco = blocoSecao(alvo);
+
+    var trilha = [{ rotulo: secao.rotulo, href: atual ? hrefItem(secao) : '' }];
+    if (atual) trilha.push({ rotulo: atual.rotulo, href: sub ? hrefItem(atual) : '' });
+    if (sub) trilha.push({ rotulo: sub.rotulo });
     var temLateral = filhos(secao.id).length > 0;
-    $main.innerHTML = migalhas([{ rotulo: secao.rotulo, href: atual ? hrefItem(secao) : '' }].concat(atual ? [{ rotulo: atual.rotulo }] : [])) +
-      '<div class="container pagina' + (temLateral ? '' : ' sem-lateral') + '">' + (temLateral ? lateral(secao, atual ? atual.id : '') : '') +
+    $main.innerHTML = migalhas(trilha) +
+      '<div class="container pagina' + (temLateral ? '' : ' sem-lateral') + '">' + (temLateral ? lateral(secao, alvo.id) : '') +
       '<article class="conteudo">' + bloco + '</article></div>';
-    document.title = (rotuloAtual || secao.rotulo) + ' — ' + titulo;
+    document.title = alvo.rotulo + ' — ' + titulo;
   }
 
   function naoEncontrada() {
